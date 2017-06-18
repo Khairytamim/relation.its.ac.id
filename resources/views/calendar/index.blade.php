@@ -10,23 +10,33 @@
 <script type="text/javascript">
 $(document).ready(function() {
 
-	// var posting = 
-	$.post( '{{route("jadwalajax")}}',function( data ) {
-	  alert( "Data Loaded: " + data );
-	});
 	
-	$('#calendar').fullCalendar({
-		header: {
-			left: 'prev,next today',
-			center: 'title',
-			right: 'month,basicWeek,basicDay'
-		},
-		defaultDate: '2017-05-12',
-		navLinks: true, // can click day/week names to navigate views
-		editable: true,
-		eventLimit: true, // allow "more" link when too many events
-		events: posting
+	$.post( '{{route("jadwalajax")}}',function( data ) {
+	  	$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,basicWeek,basicDay'
+			},
+			
+			navLinks: true, // can click day/week names to navigate views
+			editable: true,
+			eventLimit: true, // allow "more" link when too many events
+			events: data,
+			eventClick: function(calEvent, jsEvent, view) {
+		        alert('Event: ' + calEvent.title);
+		        alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+		        alert('View: ' + view.name);
+
+		        // change the border color just for fun
+		        $(this).css('border-color', 'red');
+		    }
+		});
 	});
+
+	// console.log($posting);
+	
+	
 		
 });
 
