@@ -10,4 +10,16 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    protected $data = [];
+
+    public function setTitle($title)
+	{
+		$this->data['page_title'] = $title;
+	}
+
+	public function setActive($value)
+	{
+		$this->data['active'] = $value;
+	}
 }

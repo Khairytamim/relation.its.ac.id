@@ -14,3 +14,30 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'admin'], function () {
+	Route::get('/', 'AcaraController@index')->name('admin');
+	Route::get('/list', 'AcaraController@list')->name('listadmin');
+	Route::get('/confirm', 'AcaraController@confirm')->name('konfirmasiadmin');
+
+});
+
+Route::group(['prefix' => 'acara'], function () {
+	Route::get('/', 'AcaraController@home')->name('acara');
+	Route::post('/add', 'AcaraController@add')->name('addacara');
+	Route::post('/update', 'AcaraController@update')->name('updateacara');
+	Route::post('/delete', 'AcaraController@delete')->name('deleteacara');
+	Route::post('/jadwal', 'AcaraController@jadwal')->name('jadwalajax');
+});
+
+Route::group(['prefix' => 'user'], function () {
+	Route::get('/', 'AcaraController@user')->name('user');
+});
+
+Route::group(['prefix' => 'calendar'], function () {
+	Route::get('/', 'AcaraController@calendar')->name('calendar');
+});
