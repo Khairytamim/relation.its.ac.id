@@ -38,6 +38,10 @@ Route::group(['prefix' => 'user'], function () {
 	Route::get('/', 'AcaraController@user')->name('user');
 });
 
+Route::group(['prefix' => 'cek'], function () {
+	Route::get('/', 'HomeController@cek');
+});
+
 Route::group(['prefix' => 'calendar'], function () {
 	Route::get('/', 'AcaraController@calendar')->name('calendar');
 });

@@ -11,6 +11,8 @@ use App\Acara;
 use Uuid;
 // use Response;
 use DB;
+use Mail;
+use App\Mail\KonfirmasiAcara;
 
 class AcaraController extends Controller
 {
@@ -43,7 +45,6 @@ class AcaraController extends Controller
     {
         $this->setActive('calendar');
         $this->setTitle('calendar');
-        $this->data['acara'] = Acara::where('status', 0); //sementara yang 0 dulu
 
         return view('calendar.index', $this->data);
     }
@@ -62,8 +63,8 @@ class AcaraController extends Controller
     {
         $this->setActive('list');
         $this->setTitle('list');
-        $this->data['acara'] = Acara::get();
-        //dd($halo);
+        $this->data['acara'] = Acara::where('status', 0)->get();
+        //dd($this->data['acara']);
 
         return view('admin.konfirmasiacara.index', $this->data);
     }
@@ -81,7 +82,7 @@ class AcaraController extends Controller
         $create->deskripsi_acara = $request->deskripsi;
         $create->status = 0;
         $file = $request->poster;
-        $filename = 'acara/'. Uuid::generate(4) . '.' . $file->guessExtension();             
+        $filename = 'acara/'. Uuid::generate(4) . '.' . $file->getClientOriginalExtension();             
         if ($file) {
             Storage::disk('public')->put($filename, File::get($file));
         }
@@ -105,7 +106,7 @@ class AcaraController extends Controller
         $update->deskripsi_acara = $request->deskripsi;
         $update->status = 1;
         $file = $request->poster;
-        $filename = 'acara/'. Uuid::generate(4) . '.' . $file->guessExtension();             
+        $filename = 'acara/'. Uuid::generate(4) . '.' . $file->getClientOriginalExtension();             
         if ($file) {
             Storage::disk('public')->put($filename, File::get($file));
         }
@@ -115,12 +116,15 @@ class AcaraController extends Controller
         $update->tanggal_selesai = $request->tanggalselesai;
         $update->save();
 
+        Mail::to($request->emailpic)->send(new KonfirmasiAcara($request->id_acara));
+        
+
         return back()->with('status','About updated!');
     }
 
     public function jadwal(Request $request)
     {
-        $result = Acara::select(DB::raw('nama_acara as title'), DB::raw('tanggal_mulai as start'), DB::raw('tanggal_selesai as end'))->get();
+        $result = Acara::select(DB::raw('nama_acara as title'), DB::raw('tanggal_mulai as start'), DB::raw('tanggal_selesai as end'))->where('status', 1)->get();
 
         return Response::json($result);
     }
