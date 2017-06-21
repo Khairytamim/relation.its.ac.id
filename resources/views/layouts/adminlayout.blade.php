@@ -81,9 +81,9 @@
 
           <ul class="sidebar-menu">
             <li class="header">PILIHAN MENU</li>
-            <li class="" id="aktifhome">
+            {{-- <li class="" id="aktifhome">
               <a href="{{route('home')}}"><i class="fa fa-home"></i> <span>Home</span></a>
-            </li>
+            </li> --}}
             <li id="aktifperkuliahan" class="treeview">
               <a href="#">
                 <i class="fa fa-calendar-check-o"></i> <span>Acara</span>

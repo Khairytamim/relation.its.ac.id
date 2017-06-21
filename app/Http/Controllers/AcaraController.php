@@ -106,20 +106,49 @@ class AcaraController extends Controller
         $update->deskripsi_acara = $request->deskripsi;
         $update->status = 1;
         $file = $request->poster;
-        $filename = 'acara/'. Uuid::generate(4) . '.' . $file->getClientOriginalExtension();             
+
         if ($file) {
+            $filename = 'acara/'. Uuid::generate(4) . '.' . $file->getClientOriginalExtension();
             Storage::disk('public')->put($filename, File::get($file));
+            $update->poster_acara = "storage/$filename";
+
         }
 
-        $update->poster_acara = "storage/$filename";
         $update->tanggal_mulai = $request->tanggalmulai;
         $update->tanggal_selesai = $request->tanggalselesai;
         $update->save();
 
-        Mail::to($request->emailpic)->send(new KonfirmasiAcara($request->id_acara));
         
 
-        return back()->with('status','About updated!');
+        return back()->with('status','Data Updated!');
+    }
+
+    public function updateemail(Request $request)
+    {
+        $update = Acara::find($request->id_acara);
+        $update->pengaju_acara = $request->namapic;
+        $update->nama_acara = $request->namaacara;
+        $update->lokasi_acara = $request->lokasi;
+        $update->kontak_pengaju = $request->kontakpic;
+        $update->email_pengaju = $request->emailpic;
+        $update->deskripsi_acara = $request->deskripsi;
+        $update->status = 0;
+        $update->status_notes = 0;
+        $file = $request->poster;
+        if ($file) {
+            $filename = 'acara/'. Uuid::generate(4) . '.' . $file->getClientOriginalExtension();
+            Storage::disk('public')->put($filename, File::get($file));
+            $update->poster_acara = "storage/$filename";
+
+        }
+
+        $update->tanggal_mulai = $request->tanggalmulai;
+        $update->tanggal_selesai = $request->tanggalselesai;
+        $update->save();
+
+        
+
+        return back()->with('status','Data Updated');
     }
 
     public function jadwal(Request $request)
@@ -129,4 +158,32 @@ class AcaraController extends Controller
         return Response::json($result);
     }
 
+    public function delete(Request $request)
+    {
+        // $delete = Galleries::find($request->id);
+        // $delete->delete();
+
+
+        // return back()->with('delete', 'Event deleted!');
+    }
+
+    public function lihat(Request $request)
+    {
+        $this->data['value'] = Acara::find($request->id);
+        dd($this->data['value']);
+        //return view('lihat.index', $this->data);
+    }
+
+
+    public function notes(Request $request)
+    {
+        $query = Acara::find($request->id);
+        //dd($query);
+        $this->data['id'] = $request->id;
+        $this->data['note'] = $request->note;
+        //Mail::to($query->email_pengaju)->send(new KonfirmasiAcara($this->data));
+        $query->status_notes = 0;
+        dd($query);
+        //return back()->with('status', 'Data Sukses Terkirim');
+    }
 }

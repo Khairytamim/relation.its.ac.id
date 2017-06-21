@@ -19,10 +19,12 @@ class KonfirmasiAcara extends Mailable
      */
     public $id;
     public $result;
+    public $note;
 
     public function __construct($data)
     {
-        $this->id = $data;
+        $this->id = $data['id'];
+        $this->note = $data['note'];
     }
 
     /**
@@ -34,7 +36,7 @@ class KonfirmasiAcara extends Mailable
     {
         $this->result = Acara::find($this->id);
         // return $this->view('view.name');
-        return $this->subject($data->nama_acara)->from('no-reply@humas.its.ac.id')->view('konfirmasi.index');
+        return $this->subject($this->result->nama_acara)->from('no-reply@humas.its.ac.id')->view('emailkonfirmasi.index');
 
     }
 }

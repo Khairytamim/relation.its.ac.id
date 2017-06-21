@@ -2,7 +2,11 @@
 
 @section('content')
 <div class="container"> 
-	<div id="calendar" ></div>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div id="calendar" ></div>	
+	</div>
+</div>
 </div>
 @endsection
 

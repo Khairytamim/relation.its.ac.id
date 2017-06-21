@@ -30,8 +30,13 @@ Route::group(['prefix' => 'acara'], function () {
 	Route::get('/', 'AcaraController@home')->name('acara');
 	Route::post('/add', 'AcaraController@add')->name('addacara');
 	Route::post('/update', 'AcaraController@update')->name('updateacara');
+	Route::post('/updateemail', 'AcaraController@updateemail')->name('updateemailacara');
 	Route::post('/delete', 'AcaraController@delete')->name('deleteacara');
 	Route::post('/jadwal', 'AcaraController@jadwal')->name('jadwalajax');
+	Route::get('/lihat', 'AcaraController@lihat')->name('lihatacara');
+	Route::post('/notes', 'AcaraController@notes')->name('notes');
+
+
 });
 
 Route::group(['prefix' => 'user'], function () {

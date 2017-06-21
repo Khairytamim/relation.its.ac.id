@@ -20,7 +20,7 @@
     <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
         <tr>
             <td align="center" bgcolor="#70bbd9" style="padding: 40px 0 30px 0;">
-                <h1>INFORMASI PUBLIK ITS</h1>
+                <h1>HUMAS ITS</h1>
             </td>
         </tr>
         <tr>
@@ -33,13 +33,15 @@
              </tr>
              <tr>
               <td style="padding: 20px 0 30px 0;">
-               Hai {{urldecode($result->pengaju_acara)}}, Acara anda telah dikonfirmasi. Detail acara
-               dapat diubah melalui link dibawah ini.
+               Hai {{urldecode($result->pengaju_acara)}}, data telah di periksa 
+               dan butuh beberapa berubah sebagai berikut. 
+               {{$note}}
               </td>
              </tr>
              <tr>
               <td style="padding: 20px 0 30px 0;">
-               {{($result->jawaban)}}
+               Detail acara dapat diubah melalui link<br>
+               {{ URL::to(route("lihatacara").'?id='. $result->id_acara) }}
               </td>
              </tr>
             </table>
@@ -50,7 +52,7 @@
              <table border="0" cellpadding="0" cellspacing="0" width="100%">
              <tr>
                 <td width="75%" style="text-align: right;" >
-                 <b>&reg; Informasi Publik ITS, 2017</b><br/>
+                 <b>&reg; Humas ITS, 2017</b><br/>
                 </td>
              </tr>
             </table>
