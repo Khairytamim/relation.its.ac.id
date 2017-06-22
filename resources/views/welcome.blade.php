@@ -31,9 +31,33 @@
                             <textarea id="deskripsi" type="text" class="form-control" name="deskripsi" value="" required></textarea> 
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="poster" class="col-md-4 control-label">Poster Acara</label>
+                        <div class="col-md-8">
+                            <input type="file" name="poster" id="exampleInputFile">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h2 style="text-align: right;">DETAIL AGENDA</h2>
+                    <div class="form-group">
+                        <label for="namaacara" class="col-md-4 control-label">Nama Agenda</label>
+
+                        <div class="col-md-8">
+                            <input id="namaacara" type="text" class="form-control" name="nama_agenda" value="" required>
+                        </div>
+                    </div>
 
                     <div class="form-group">
-                        <label for="lokasi" class="col-md-4 control-label">Lokasi Acara</label>
+                        <label for="deskripsi" class="col-md-4 control-label">Deskripsi Agenda</label>
+
+                        <div class="col-md-8">
+                            <textarea id="deskripsi" type="text" class="form-control" name="deskripsi_agenda" value="" required></textarea> 
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lokasi" class="col-md-4 control-label">Lokasi Agenda</label>
 
                         <div class="col-md-8">
                             <input id="lokasi" type="text" class="form-control" name="lokasi" value="" required>
@@ -41,7 +65,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="lokasi" class="col-md-4 control-label">Tanggal Acara</label>
+                        <label for="lokasi" class="col-md-4 control-label">Tanggal Agenda</label>
                         <div class='col-md-8'>
                             <div class='input-group date' id='tanggalmulai'>
                                 <input type='text' class="form-control" name="tanggalmulai" />
@@ -49,20 +73,6 @@
                                     <span class="glyphicon glyphicon-calendar"></span>
                                 </span>
                             </div>
-                        </div>
-                        <div class='col-md-8 col-md-offset-4' style="padding-top: 3vh">
-                            <div class='input-group date' id='tanggalselesai'>
-                                <input type='text' class="form-control" name="tanggalselesai" />
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="poster" class="col-md-4 control-label">Poster Acara</label>
-                        <div class="col-md-8">
-                            <input type="file" name="poster" id="exampleInputFile">
                         </div>
                     </div>
                 </div>
@@ -77,7 +87,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="kontakpic" class="col-md-4 control-label">Kontak PIC</label>
+                        <label for="kontakpic" class="col-md-4 control-label">No Telp/HP PIC</label>
 
                         <div class="col-md-8">
                             <input id="kontakpic" type="number" class="form-control" name="kontakpic" value="" required>
@@ -94,7 +104,6 @@
 
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">
-                            {{ csrf_field() }}
                             <button type="submit" class="btn btn-primary">
                                 Submit Acara
                             </button>

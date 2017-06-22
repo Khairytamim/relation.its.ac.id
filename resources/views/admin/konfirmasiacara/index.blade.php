@@ -42,7 +42,9 @@
                         <div class="row">
                           <form action="{{route('updateacara')}}" method="post" enctype="multipart/form-data" >
                             <div class="col-sm-12 col-md-4">
+                            @isset($value->poster_acara)
                               <img src="{{ asset($value->poster_acara) }}" style="height:100%;width: 100%">
+                            @endisset
                             </div>
                             <div class="col-sm-12 col-md-4">
                                   <input type="hidden" name="id_acara" value="{{$value->id_acara}}">

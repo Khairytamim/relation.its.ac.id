@@ -76,18 +76,23 @@ class AcaraController extends Controller
         $create->id_acara = Uuid::generate(4);
         $create->pengaju_acara = $request->namapic;
         $create->nama_acara = $request->namaacara;
-        $create->lokasi_acara = $request->lokasi;
+        $create->lokasi_agenda = $request->lokasi;
         $create->kontak_pengaju = $request->kontakpic;
         $create->email_pengaju = $request->emailpic;
         $create->deskripsi_acara = $request->deskripsi;
+        $create->deskripsi_agenda = $request->deskripsi_agenda;
+        $create->nama_agenda = $request->nama_agenda;
+
         $create->status = 0;
         $file = $request->poster;
-        $filename = 'acara/'. Uuid::generate(4) . '.' . $file->getClientOriginalExtension();             
+                     
         if ($file) {
+            $filename = 'acara/'. Uuid::generate(4) . '.' . $file->getClientOriginalExtension();
             Storage::disk('public')->put($filename, File::get($file));
+            $create->poster_acara = "storage/$filename";
         }
 
-        $create->poster_acara = "storage/$filename";
+       
         $create->tanggal_mulai = $request->tanggalmulai;
         $create->tanggal_selesai = $request->tanggalselesai;
         $create->save();
@@ -100,10 +105,12 @@ class AcaraController extends Controller
         $update = Acara::find($request->id_acara);
         $update->pengaju_acara = $request->namapic;
         $update->nama_acara = $request->namaacara;
-        $update->lokasi_acara = $request->lokasi;
+        $update->lokasi_agenda = $request->lokasi;
         $update->kontak_pengaju = $request->kontakpic;
         $update->email_pengaju = $request->emailpic;
         $update->deskripsi_acara = $request->deskripsi;
+        $create->deskripsi_agenda = $request->deskripsi_agenda;
+        $create->nama_agenda = $request->nama_agenda;
         $update->status = 1;
         $file = $request->poster;
 
@@ -115,7 +122,7 @@ class AcaraController extends Controller
         }
 
         $update->tanggal_mulai = $request->tanggalmulai;
-        $update->tanggal_selesai = $request->tanggalselesai;
+        // $update->tanggal_selesai = $request->tanggalselesai;
         $update->save();
 
         
@@ -153,7 +160,7 @@ class AcaraController extends Controller
 
     public function jadwal(Request $request)
     {
-        $result = Acara::select(DB::raw('nama_acara as title'), DB::raw('tanggal_mulai as start'), DB::raw('tanggal_selesai as end'))->where('status', 1)->get();
+        $result = Acara::select(DB::raw('nama_acara as title'), DB::raw('tanggal_mulai as start'))->where('status', 1)->get();
 
         return Response::json($result);
     }

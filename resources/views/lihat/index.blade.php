@@ -6,7 +6,9 @@
     <div class="row">
       <form action="{{route('updateemailacara')}}" method="post" enctype="multipart/form-data" >
         <div class="col-sm-12 col-md-4">
+        @isset($value->poster_acara)
           <img src="{{ asset($value->poster_acara) }}" style="height:100%;width: 100%">
+        @endisset
         </div>
         <div class="col-sm-12 col-md-4">
         @if (session('status'))
@@ -94,7 +96,7 @@
               </div>
               <div class="form-group">
                   <label for="lokasi" class="control-label">Lokasi Acara</label>
-                  <input id="lokasi" type="text" class="form-control" name="lokasi" value="{{$value->lokasi_acara}}" disabled>
+                  <input id="lokasi" type="text" class="form-control" name="lokasi" value="{{$value->lokasi_agenda}}" disabled>
               </div>
               <div class="form-group" style="z-index: 100000">
                 <label for="lokasi" class="control-label">Tanggal Mulai Acara</label>

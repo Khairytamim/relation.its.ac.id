@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sistem Informasi | MAUT</title>
+    <title>Sistem Informasi | Humas ITS</title>
 <!--     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css"> -->
     
@@ -92,8 +92,8 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li class=""><a href="{{route('listadmin')}}"><i class="fa fa-circle-o"></i>List</a></li>
-                <li class=""><a href="{{route('konfirmasiadmin')}}"><i class="fa fa-circle-o"></i>Konfirmasi</a></li>
+                <li class=""><a href="{{route('listadmin')}}"><i class="fa fa-circle-o"></i>Confirmed</a></li>
+                <li class=""><a href="{{route('konfirmasiadmin')}}"><i class="fa fa-circle-o"></i>Confirmation</a></li>
               </ul>
             </li>
           </ul>
