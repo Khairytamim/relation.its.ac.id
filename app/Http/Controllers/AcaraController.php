@@ -109,8 +109,8 @@ class AcaraController extends Controller
         $update->kontak_pengaju = $request->kontakpic;
         $update->email_pengaju = $request->emailpic;
         $update->deskripsi_acara = $request->deskripsi;
-        $create->deskripsi_agenda = $request->deskripsi_agenda;
-        $create->nama_agenda = $request->nama_agenda;
+        $update->deskripsi_agenda = $request->deskripsi_agenda;
+        $udpate->nama_agenda = $request->nama_agenda;
         $update->status = 1;
         $file = $request->poster;
 
@@ -139,6 +139,8 @@ class AcaraController extends Controller
         $update->kontak_pengaju = $request->kontakpic;
         $update->email_pengaju = $request->emailpic;
         $update->deskripsi_acara = $request->deskripsi;
+        $update->deskripsi_agenda = $request->deskripsi_agenda;
+        $udpate->nama_agenda = $request->nama_agenda;
         $update->status = 0;
         $update->status_notes = 0;
         $file = $request->poster;
