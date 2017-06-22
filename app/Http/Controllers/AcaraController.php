@@ -135,14 +135,14 @@ class AcaraController extends Controller
         $update = Acara::find($request->id_acara);
         $update->pengaju_acara = $request->namapic;
         $update->nama_acara = $request->namaacara;
-        $update->lokasi_acara = $request->lokasi;
+        $update->lokasi_agenda = $request->lokasi;
         $update->kontak_pengaju = $request->kontakpic;
         $update->email_pengaju = $request->emailpic;
         $update->deskripsi_acara = $request->deskripsi;
         $update->status = 0;
         $update->status_notes = 0;
         $file = $request->poster;
-        
+
         if ($file) {
             $filename = 'acara/'. Uuid::generate(4) . '.' . $file->getClientOriginalExtension();
             Storage::disk('public')->put($filename, File::get($file));
