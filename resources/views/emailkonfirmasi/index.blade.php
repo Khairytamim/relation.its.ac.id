@@ -34,7 +34,7 @@
              <tr>
               <td style="padding: 20px 0 30px 0;">
                Hai {{urldecode($result->pengaju_acara)}}, data telah di periksa 
-               dan butuh beberapa berubah sebagai berikut. 
+               dan butuh beberapa perubahan sebagai berikut:<br> 
                {{$note}}
               </td>
              </tr>
