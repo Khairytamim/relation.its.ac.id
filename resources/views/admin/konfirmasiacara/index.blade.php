@@ -70,7 +70,7 @@
                                   <div class="form-group" style="z-index: 100000">
                                     <label for="lokasi" class="control-label">Tanggal Mulai Acara</label>
                                     <div class='input-group date' id='tanggalselesai{{$value->id_acara}}'>
-                                        <input type='text' class="form-control" value="{{$value->tanggal_mulai}}" name="tanggalmulai"  />
+                                        <input type='text' class="form-control" value="{{$value->tanggal_selesai}}" name="tanggalselesai"  />
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </span>
