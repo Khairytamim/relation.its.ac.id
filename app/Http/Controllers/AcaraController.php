@@ -160,7 +160,7 @@ class AcaraController extends Controller
 
     public function jadwal(Request $request)
     {
-        $result = Acara::select(DB::raw('nama_acara as title'), DB::raw('tanggal_mulai as start'))->where('status', 1)->get();
+        $result = Acara::select(DB::raw('nama_agenda as title'), DB::raw('tanggal_mulai as start'))->where('status', 1)->get();
 
         return Response::json($result);
     }
