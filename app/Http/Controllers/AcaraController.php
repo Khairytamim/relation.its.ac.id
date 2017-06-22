@@ -110,7 +110,7 @@ class AcaraController extends Controller
         $update->email_pengaju = $request->emailpic;
         $update->deskripsi_acara = $request->deskripsi;
         $update->deskripsi_agenda = $request->deskripsi_agenda;
-        $udpate->nama_agenda = $request->nama_agenda;
+        $update->nama_agenda = $request->nama_agenda;
         $update->status = 1;
         $file = $request->poster;
 
@@ -140,7 +140,7 @@ class AcaraController extends Controller
         $update->email_pengaju = $request->emailpic;
         $update->deskripsi_acara = $request->deskripsi;
         $update->deskripsi_agenda = $request->deskripsi_agenda;
-        $udpate->nama_agenda = $request->nama_agenda;
+        $update->nama_agenda = $request->nama_agenda;
         $update->status = 0;
         $update->status_notes = 0;
         $file = $request->poster;
