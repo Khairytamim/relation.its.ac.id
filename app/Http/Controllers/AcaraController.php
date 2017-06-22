@@ -142,6 +142,7 @@ class AcaraController extends Controller
         $update->status = 0;
         $update->status_notes = 0;
         $file = $request->poster;
+        
         if ($file) {
             $filename = 'acara/'. Uuid::generate(4) . '.' . $file->getClientOriginalExtension();
             Storage::disk('public')->put($filename, File::get($file));
