@@ -16,18 +16,18 @@
           <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
               <tr>
-                <th>Nama Acara</th>
-                <th>Lokasi Acara</th>
-                <th>Tanggal Acara</th>
+                <th>Nama Agenda</th>
+                <th>Lokasi Agenda</th>
+                <th>Tanggal Agenda</th>
                 <th>Status</th>
               </tr>
             </thead>
             <tbody>
               @foreach($acara as $value)
                 <tr>
-                  <td>{{$value->nama_acara}}</td>
-                  <td>{{$value->lokasi_acara}}</td>
-                  <td>{{$value->tanggal_mulai}} - {{$value->tanggal_selesai}}</td>
+                  <td>{{$value->nama_agenda}}</td>
+                  <td>{{$value->lokasi_agenda}}</td>
+                  <td>{{$value->tanggal_mulai}}</td>
                   <td><a class="btn btn-primary tgl" data-toggle="modal" data-id="{{$value->id_acara}}" data-target="#{{$value->id_acara}}">KLIK</a></td>
                 </tr>
                 <!-- Modal -->
