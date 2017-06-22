@@ -160,18 +160,18 @@ class AcaraController extends Controller
 
     public function delete(Request $request)
     {
-        // $delete = Galleries::find($request->id);
-        // $delete->delete();
+        $delete = Acara::find($request->id);
+        $delete->delete();
 
 
-        // return back()->with('delete', 'Event deleted!');
+        return back()->with('delete', 'Acara Telah Terhapus');
     }
 
     public function lihat(Request $request)
     {
         $this->data['value'] = Acara::find($request->id);
-        dd($this->data['value']);
-        //return view('lihat.index', $this->data);
+        //dd($this->data['value']);
+        return view('lihat.index', $this->data);
     }
 
 
@@ -181,9 +181,10 @@ class AcaraController extends Controller
         //dd($query);
         $this->data['id'] = $request->id;
         $this->data['note'] = $request->note;
-        //Mail::to($query->email_pengaju)->send(new KonfirmasiAcara($this->data));
-        $query->status_notes = 0;
-        dd($query);
-        //return back()->with('status', 'Data Sukses Terkirim');
+        $query->status_notes = 1;
+        $query->save();
+        // dd($query);
+        Mail::to($query->email_pengaju)->send(new KonfirmasiAcara($this->data));
+        return back()->with('status', 'Data Sukses Terkirim');
     }
 }

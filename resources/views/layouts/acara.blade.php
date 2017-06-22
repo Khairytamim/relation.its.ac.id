@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Humas ITS</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -20,9 +20,9 @@
     <link rel="stylesheet" href="{{ asset('css/fullcalendar.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fullcalendar.print.min.css') }}" media="print">
 </head>
-<body>
+<body style="background-image:url('bg.png'); background-repeat: repeat;background-size: 100%">
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top" style="opacity: 0.8; border-bottom: 4px solid #20417f;">
             <div class="container">
                 <div class="navbar-header">
 
@@ -35,7 +35,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">HUMAS</a>
+                    <a class="navbar-brand" href="{{ url('/') }}">HUMAS ITS</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

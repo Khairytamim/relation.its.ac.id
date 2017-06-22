@@ -107,7 +107,7 @@
     </div>
 
     <footer class="main-footer">
-      <strong>Copyright &copy; 2017 <a href="/">MMT</a>.</strong> All rights reserved.
+      <strong>Copyright &copy; 2017 <a href="/admin/confirm">Humas ITS</a>.</strong> All rights reserved.
     </footer>
 
   </div>
