@@ -44,11 +44,22 @@
               <div class="form-group" style="z-index: 100000">
                 <label for="lokasi" class="control-label">Tanggal Agenda</label>
                 <div class='input-group date' id='tanggalmulai'>
-                    <input type='text' class="form-control" value="{{$value->tanggal_mulai}}" name="tanggalmulai"  />
+                    <input type='text' class="form-control" value="{{$value->tanggal_mulai}}" name="tanggalmulai" required />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 </div>
+              </div>
+              <div class="form-group">
+                  <label for="lokasi" class="col-md-4 control-label">Waktu Agenda</label>
+                  <div class='col-md-8'>
+                      <div class='input-group date' id='waktu'>
+                          <input type='text' class="form-control" name="waktu" required />
+                          <span class="input-group-addon">
+                              <span class="glyphicon glyphicon-time"></span>
+                          </span>
+                      </div>
+                  </div>
               </div>
         </div>
         <div class="col-sm-12 col-md-4">
@@ -112,11 +123,22 @@
           <div class="form-group" style="z-index: 100000">
             <label for="lokasi" class="control-label">Tanggal Agenda</label>
             <div class='input-group date' id='tanggalmulai'>
-                <input type='text' class="form-control" value="{{$value->tanggal_mulai}}" name="tanggalmulai"  />
+                <input type='text' class="form-control" value="{{$value->tanggal_mulai}}" name="tanggalmulai" disabled  />
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
             </div>
+          </div>
+          <div class="form-group">
+              <label for="lokasi" class="col-md-4 control-label">Waktu Agenda</label>
+              <div class='col-md-8'>
+                  <div class='input-group date' id='waktu'>
+                      <input type='text' class="form-control" name="waktu" disabled />
+                      <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-time"></span>
+                      </span>
+                  </div>
+              </div>
           </div>
         </div>
         <div class="col-sm-12 col-md-4">
@@ -156,6 +178,9 @@
                 viewMode: 'years',
                 format: 'YYYY-MM-DD'
             });
+        $('#waktu').datetimepicker({
+                    format: 'LT'
+                });
         $("#tanggalmulai").on("dp.change", function (e) {
             $('#tanggalselesai').data("DateTimePicker").minDate(e.date);
         });

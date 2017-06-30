@@ -75,6 +75,17 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="lokasi" class="col-md-4 control-label">Waktu Agenda</label>
+                        <div class='col-md-8'>
+                            <div class='input-group date' id='waktu'>
+                                <input type='text' class="form-control" name="waktu" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-time"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-6" style="padding-top: 0">
                     <h2 style="text-align: right;">PERSON IN CHARGE</h2>
@@ -130,6 +141,9 @@
                 viewMode: 'years',
                 format: 'YYYY-MM-DD'
             });
+        $('#waktu').datetimepicker({
+                    format: 'LT'
+                });
         $("#tanggalmulai").on("dp.change", function (e) {
             $('#tanggalselesai').data("DateTimePicker").minDate(e.date);
         });

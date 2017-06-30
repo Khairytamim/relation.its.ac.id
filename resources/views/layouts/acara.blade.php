@@ -44,6 +44,7 @@
                         <!-- Authentication Links -->
                         <li><a href="{{ route('acara') }}">Submit Acara</a></li>
                         <li><a href="{{ route('calendar') }}">Kalender</a></li>
+                        <li><a href="{{ route('panduan') }}">Panduan</a></li>
                     </ul>
                 </div>
             </div>

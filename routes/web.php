@@ -35,6 +35,7 @@ Route::group(['prefix' => 'acara'], function () {
 	Route::post('/jadwal', 'AcaraController@jadwal')->name('jadwalajax');
 	Route::get('/lihat', 'AcaraController@lihat')->name('lihatacara');
 	Route::post('/notes', 'AcaraController@notes')->name('notes');
+	Route::get('/panduan', 'HomeController@panduan')->name('panduan');
 
 
 });

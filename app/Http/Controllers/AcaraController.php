@@ -94,7 +94,7 @@ class AcaraController extends Controller
 
        
         $create->tanggal_mulai = $request->tanggalmulai;
-        $create->tanggal_selesai = $request->tanggalselesai;
+        $create->waktu_agenda = $request->waktu;
         $create->save();
 
         return back()->with('status', 'Sukses!');
@@ -122,7 +122,7 @@ class AcaraController extends Controller
         }
 
         $update->tanggal_mulai = $request->tanggalmulai;
-        // $update->tanggal_selesai = $request->tanggalselesai;
+        $update->waktu_agenda = $request->waktu;
         $update->save();
 
         
@@ -153,7 +153,7 @@ class AcaraController extends Controller
         }
 
         $update->tanggal_mulai = $request->tanggalmulai;
-        $update->tanggal_selesai = $request->tanggalselesai;
+        $update->waktu_agenda = $request->waktu;
         $update->save();
 
         
