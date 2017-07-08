@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/stylish-portfolio.css') }}" rel="stylesheet" >
     <link href="{{ asset('admindist/css/bootstrap-datetimepicker-standalone.css') }}" rel="stylesheet">
     <link href="{{ asset('admindist/css/bootstrap-datetimepicker.css') }}" rel="stylesheet">
     <link href="{{ asset('admindist/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
@@ -22,42 +23,66 @@
 </head>
 <body style="background-image:url('bg.png'); background-repeat: repeat;background-size: 100%">
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top" style="opacity: 0.8; border-bottom: 4px solid #20417f;">
+        <!-- Navigation -->
+        <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle">MENU</a>
+        <nav id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><b>x</b></a>
+                <li><h2 style="color: white">HUMAS<b>ITS</b></h2></li>
+                <li>
+                    <a href="#calender" onclick=$("#menu-close").click();>Kalender</a>
+                </li>
+                <li>
+                    <a href="#panduan" onclick=$("#menu-close").click();>Panduan</a>
+                </li>
+                <li>
+                    <a href="#event" onclick=$("#menu-close").click();>Submit Acara</a>
+                </li>
+            </ul>
+        </nav>
+        <!--content-->
+        @yield('content')
+        <!--footer-->
+        <footer style="padding:0; background: linear-gradient(rgba(51,122,183,0),rgba(51,122,183,0.4), rgba(51,122,183,0.6),rgba(51,122,183,1));">
             <div class="container">
-                <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">HUMAS ITS</a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        <li><a href="{{ route('acara') }}">Submit Acara</a></li>
-                        <li><a href="{{ route('calendar') }}">Kalender</a></li>
-                        <li><a href="{{ route('panduan') }}">Panduan</a></li>
-                    </ul>
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-1 text-center">
+                        <h4><strong>Kontak Kami</strong>
+                        </h4>
+                        <p>Rektorat Building 1st Floor
+                            <br>Kampus ITS, Jalan Raya ITS, Keputih, Sukolilo, Keputih, Surabaya
+                            <br>Jawa Timur 60117, Indonesia</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fa fa-phone fa-fw"></i> (031) 456-7890</li>
+                            <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:fikry.labsky08@gmail.com">Developed By</a>
+                            </li>
+                        </ul>
+                        <br>
+                        {{-- <ul class="list-inline">
+                            <li>
+                                <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                            </li>
+                        </ul> --}}
+                        <hr class="small">
+                        <p class="text-muted" style="color: white">Copyright &copy; Humas ITS 2017</p>
+                    </div>
                 </div>
             </div>
-        </nav>
-
-        @yield('content')
+            <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
+        </footer>
     </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/moment.min.js') }}"></script>
-
+    {{-- <script src="{{ asset('js/bootstrap.min.js') }}"></script> --}}
     <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
     <!--fullcalender-->
     <script src="{{ asset('js/fullcalendar.min.js') }}"></script>
