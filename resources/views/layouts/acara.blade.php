@@ -43,7 +43,7 @@
         <!--content-->
         @yield('content')
         <!--footer-->
-        <footer style="padding:0; background: linear-gradient(rgba(32,65,127,0),rgba(32,65,127,0.4), rgba(32,65,127,0.6),rgba(32,65,127,1));">
+        <footer style="padding:10vh 0 0 0; background: linear-gradient(rgba(32,65,127,0),rgba(32,65,127,0.2), rgba(32,65,127,0.6),rgba(32,65,127,1));">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-10 col-lg-offset-1 text-center">
