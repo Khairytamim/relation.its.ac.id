@@ -1,7 +1,7 @@
 @extends('layouts.acara')
 
 @section('content')
-<div class="container">
+<div class="container" style="padding: 15px">
   @if ($value->status_notes == 1)
     <div class="row">
     @if (session('status'))
@@ -58,7 +58,7 @@
               <div class="form-group">
                   <label for="lokasi">Waktu Agenda</label>
                       <div class='input-group date' id='waktu_agenda'>
-                          <input type='text' class="form-control" name="waktu" required />
+                          <input type='text' class="form-control" value="{{$value->waktu_agenda}}" name="waktu_agenda" required />
                           <span class="input-group-addon">
                               <span class="glyphicon glyphicon-time"></span>
                           </span>
