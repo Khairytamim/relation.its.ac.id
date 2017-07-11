@@ -91,9 +91,9 @@
 
 <script type="text/javascript">
   $(function () {
-    $(document).ready(function() {
-      $('#example').DataTable();
-    });
+    $('#example').DataTable({
+         "order": []
+      });
   });
 </script>
 

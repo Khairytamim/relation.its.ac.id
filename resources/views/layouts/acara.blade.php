@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('css/stylish-portfolio.css') }}" rel="stylesheet" >
     <link href="{{ asset('admindist/css/bootstrap-datetimepicker-standalone.css') }}" rel="stylesheet">
     <link href="{{ asset('admindist/css/bootstrap-datetimepicker.css') }}" rel="stylesheet">
@@ -83,6 +83,8 @@
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/moment.min.js') }}"></script>
     {{-- <script src="{{ asset('js/bootstrap.min.js') }}"></script> --}}
+    <script src="{{url('/admindist/bootstrap/js/bootstrap.js')}}"></script>
+    
     <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
     <!--fullcalender-->
     <script src="{{ asset('js/fullcalendar.min.js') }}"></script>

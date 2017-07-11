@@ -166,12 +166,14 @@
 <script type="text/javascript">
   $(function () {
     $(document).ready(function() {
-      $('#example').DataTable();
+      $('#example').DataTable({
+         "order": []
+      });
     });
 
     $(".gmbr").on('error', function() {
       
-      $(this).closest('div').html('<p><center>Gambar Error</center></p>')
+      $(this).closest('div').html('<p><center>Poster Error</center></p>')
     })
   });
 

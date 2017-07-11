@@ -10,6 +10,7 @@ use Route;
 use App\Acara;
 use Uuid;
 // use Response;
+use Validator;
 use DB;
 use Mail;
 use App\Mail\KonfirmasiAcara;
@@ -59,7 +60,7 @@ class AcaraController extends Controller
     {
         $this->setActive('list');
         $this->setTitle('list');
-        $this->data['acara'] = Acara::where('status', 1)->get();
+        $this->data['acara'] = Acara::where('status', 1)->orderBy('created_at', "desc")->get();
         //dd($halo);
 
         return view('admin.listacara.index', $this->data);
@@ -69,7 +70,7 @@ class AcaraController extends Controller
     {
         $this->setActive('list');
         $this->setTitle('list');
-        $this->data['acara'] = Acara::where('status', 0)->get();
+        $this->data['acara'] = Acara::where('status', 0)->orderBy('created_at', "desc")->get();
         //dd($this->data['acara']);
 
         return view('admin.konfirmasiacara.index', $this->data);
@@ -77,6 +78,32 @@ class AcaraController extends Controller
 
     public function add(Request $request)
     {
+
+        $messages["id_pertanyaan.required"]="id_pertanyaan dibutuhkan";
+            
+
+
+            //echo var_dump($result);
+        $validator = Validator::make($request->all(), [
+            
+            'namapic' => 'required',
+            'namaacara' => 'required',
+            'lokasi' => 'required',
+            'kontakpic' => 'required',
+            'deskripsi_agenda' => 'required',
+            'deskripsi' => 'required',
+            'nama_agenda' => 'required',
+            'tanggalmulai' => 'required',
+            'waktu' => 'required',
+                        
+            
+        ]);
+
+        if ($validator->fails()) {
+            return back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
 
         $create = new Acara;
         $create->id_acara = Uuid::generate(4);
@@ -138,7 +165,10 @@ class AcaraController extends Controller
 
     public function updateemail(Request $request)
     {
+
+
         $update = Acara::find($request->id_acara);
+        if($update->status_notes != 1 ) return back()->with('status', 'Anda tidak berhak mengupdate acara');
         $update->pengaju_acara = $request->namapic;
         $update->nama_acara = $request->namaacara;
         $update->lokasi_agenda = $request->lokasi;
@@ -169,7 +199,7 @@ class AcaraController extends Controller
 
     public function jadwal(Request $request)
     {
-        $result = Acara::select(DB::raw('nama_agenda as title'), DB::raw('tanggal_mulai as start'))->where('status', 1)->get();
+        $result = Acara::select(DB::raw('nama_agenda as title'), DB::raw('tanggal_mulai as start'), DB::raw('id_acara as id_acara'))->where('status', 1)->get();
 
         return Response::json($result);
     }
@@ -202,5 +232,12 @@ class AcaraController extends Controller
         // dd($query);
         Mail::to($query->email_pengaju)->send(new KonfirmasiAcara($this->data));
         return back()->with('status', 'Data Sukses Terkirim');
+    }
+
+    public function event(Request $request)
+    {
+        $event = Acara::find($request->id);
+        
+        return Response::json($event);
     }
 }

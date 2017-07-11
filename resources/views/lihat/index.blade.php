@@ -4,6 +4,11 @@
 <div class="container">
   @if ($value->status_notes == 1)
     <div class="row">
+    @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
       <form action="{{route('updateemailacara')}}" method="post" enctype="multipart/form-data" >
         <div class="col-sm-12 col-md-4">
           @if(isset($value->poster_acara))
@@ -15,11 +20,7 @@
           @endif
         </div>
         <div class="col-sm-12 col-md-4">
-        @if (session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-                </div>
-            @endif
+        
               <input type="hidden" name="id_acara" value="{{$value->id_acara}}">
               <div class="form-group">
                   <label for="namaacara" class="control-label">Nama Acara</label>
@@ -55,7 +56,7 @@
                 </div>
               </div>
               <div class="form-group">
-                  <label for="lokasi" ">Waktu Agenda</label>
+                  <label for="lokasi">Waktu Agenda</label>
                       <div class='input-group date' id='waktu_agenda'>
                           <input type='text' class="form-control" name="waktu" required />
                           <span class="input-group-addon">
@@ -87,16 +88,23 @@
     </div>
   @else
     <div class="row">
-      <form action="{{route('updateemailacara')}}" method="post" enctype="multipart/form-data" >
-        <div class="col-sm-12 col-md-4">
-          <img src="{{ asset($value->poster_acara) }}" style="height:100%;width: 100%">
-        </div>
-        <div class="col-sm-12 col-md-4">
-        @if (session('status'))
+      @if (session('status'))
         <div class="alert alert-success">
             {{ session('status') }}
         </div>
-        @endif
+      @endif
+      
+         <div class="col-sm-12 col-md-4">
+          @if(isset($value->poster_acara))
+          <div>
+            <img class="gmbr" src="{{ asset($value->poster_acara) }}" style="height:100%;width: 100%">
+            </div>
+          @else
+          <p><center>Uploader Tidak Mengupload Gambar</center></p>
+          @endif
+        </div>
+        <div class="col-sm-12 col-md-4">
+        
           <input type="hidden" name="id_acara" value="{{$value->id_acara}}">
           <div class="form-group">
               <label for="namaacara" class="control-label">Nama Acara</label>
@@ -108,7 +116,7 @@
           </div>
           <div class="form-group">
               <label for="poster" class="control-label">Ganti Poster Acara</label>
-              <input type="file" name="poster" id="exampleInputFile">
+              <input type="file" name="poster" disabled id="exampleInputFile">
           </div>
           <div class="form-group">
               <label for="namaacara" class="control-label">Nama Agenda</label>
@@ -132,7 +140,7 @@
             </div>
           </div>
           <div class="form-group">
-              <label for="lokasi" class="col-md-4 control-label">Waktu Agenda</label>
+              <label for="lokasi" class="control-label">Waktu Agenda</label>
               
                   <div class='input-group date' id='waktu_agenda'>
                       <input type='text' class="form-control" name="waktu" disabled />
@@ -156,13 +164,10 @@
                   <label for="emailpic" class="control-label">Email PIC</label>
                   <input id="emailpic" type="email" class="form-control" value="{{$value->email_pengaju}}" name="emailpic" disabled>
               </div>
-              <div class="form-group">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Update</button>
-              </div>
+              
         </div>
         {{ csrf_field() }}
-      </form>
+      
     </div>
   @endif
 </div>
@@ -182,6 +187,10 @@
             format: 'YYYY-MM-DD',
             allowInputToggle : true//Important! See issue #1075
         });
+        $(".gmbr").on('error', function() {
+      
+          $(this).closest('div').html('<p><center>Poster Error</center></p>')
+        })
     });
 </script>
 @endsection

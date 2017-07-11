@@ -1,6 +1,7 @@
 @extends('layouts.acara')
 
 @section('content')
+
 <header id="top" class="header" style="background: linear-gradient(rgba(51,122,183,1),rgba(51,122,183,0.8), rgba(51,122,183,0.4),rgba(51,122,183,0)); height: 100vh; ">
     <div class="text-vertical-center">
         <h1 style="color: white">HumasITS</h1>
@@ -27,6 +28,28 @@
     </div>
 </div>
 </section>
+<div class="modal fade" id="event" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Nama Agenda:</label><br>
+          <span id="namaagenda"></span><br>
+          <label>Poster:</label><br>
+          <img id="gambar" src="" style="height:100%;width: 100%"/>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 <section id="event" style="background-color: white">
 <div class="container">
     <div style="text-align: center;">
@@ -35,7 +58,17 @@
               <div class="alert alert-success">
                   {{ session('status') }}
               </div>
-          @endif
+        @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
     </div>
     <div class="row">
         <form class="form-horizontal" role="form" method="POST" action="{{ route('addacara') }}" enctype="multipart/form-data">
@@ -150,7 +183,9 @@
         </form>            
     </div>
 </div>
+
 </section>
+
 @endsection
 @section('js')
 
@@ -180,6 +215,10 @@
     });
     // to show edit calender
     $(document).ready(function() {
+        var id=0;
+        // $('#event').on('show.bs.modal', function (e) {
+            
+        // });
         $.post( '{{route("jadwalajax")}}',function( data ) {
             $('#calendar').fullCalendar({
                 header: {
@@ -193,7 +232,29 @@
                 eventLimit: true, // allow "more" link when too many events
                 events: data,
                 eventClick: function(calEvent, jsEvent, view) {
-                    alert('Event: ' + calEvent.title);
+                    id=calEvent.id_acara;
+                    // alert('Event: ' + id);
+                    $.ajax({
+                      method: "GET",
+                      url: "{{route('getevent')}}",
+                      data: { id: id }
+                    })
+                      .done(function( msg ) {
+                        // $('#namaacara').html(msg.id_acara);
+                        $('#namaagenda').html(msg.nama_agenda);
+                    
+                        var img = $("#gambar").attr('src', '{{url('')}}/'+msg.poster_acara)
+                        .on('load', function() {
+                            if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
+                                alert('broken image!');
+                            } else {
+                                $("#something").append(img);
+                            }
+                        });
+
+                        $('#event').modal('show');
+
+                      });
                     // alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
                     // alert('View: ' + view.name);
 
@@ -219,5 +280,7 @@
             }
         });
     });
+                   
+
 </script>
 @endsection
