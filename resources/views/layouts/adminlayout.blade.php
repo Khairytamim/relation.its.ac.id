@@ -84,7 +84,7 @@
             {{-- <li class="" id="aktifhome">
               <a href="{{route('home')}}"><i class="fa fa-home"></i> <span>Home</span></a>
             </li> --}}
-            <li id="aktifperkuliahan" class="treeview">
+            <li id="aktifacara" class="treeview">
               <a href="#">
                 <i class="fa fa-calendar-check-o"></i> <span>Acara</span>
                 <span class="pull-right-container">
@@ -92,8 +92,8 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li class=""><a href="{{route('listadmin')}}"><i class="fa fa-circle-o"></i>Confirmed</a></li>
-                <li class=""><a href="{{route('konfirmasiadmin')}}"><i class="fa fa-circle-o"></i>Confirmation</a></li>
+                <li id="aktifconfirmed"class=""><a href="{{route('listadmin')}}"><i class="fa fa-circle-o"></i>Confirmed</a></li>
+                <li id="aktifconfirmation"class=""><a href="{{route('konfirmasiadmin')}}"><i class="fa fa-circle-o"></i>Confirmation</a></li>
               </ul>
             </li>
           </ul>

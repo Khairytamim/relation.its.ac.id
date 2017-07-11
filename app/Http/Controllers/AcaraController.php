@@ -16,6 +16,12 @@ use App\Mail\KonfirmasiAcara;
 
 class AcaraController extends Controller
 {
+    public function __construct()
+    {
+        if($route->getActionMethod($route)!='jadwal') $this->middleware('auth');
+
+        // $this->middleware('auth');
+    }
     public function index()
     {
         $this->setActive('admin');

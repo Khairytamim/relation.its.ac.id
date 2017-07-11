@@ -93,7 +93,7 @@
             <div class="form-group">
                 <label for="lokasi" class="col-md-4 control-label">Tanggal Agenda</label>
                 <div class='col-md-8'>
-                    <div class='input-group date' id='tanggalmulai'>
+                    <div class='input-group date' id='tanggal_agenda'>
                         <input type='text' class="form-control" name="tanggalmulai" />
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
@@ -104,7 +104,7 @@
             <div class="form-group">
                 <label for="lokasi" class="col-md-4 control-label">Waktu Agenda</label>
                 <div class='col-md-8'>
-                    <div class='input-group date' id='waktu'>
+                    <div class='input-group date' id='waktu_agenda'>
                         <input type='text' class="form-control" name="waktu" />
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-time"></span>
@@ -156,24 +156,16 @@
 
 <script type="text/javascript">
     $(function () {
-        $('#tanggalselesai').datetimepicker({
+        $('#waktu_agenda').datetimepicker({
             useCurrent: false,
-            viewMode: 'years',
-            format: 'YYYY-MM-DD' //Important! See issue #1075
+            format: 'HH:mm:ss',
+            allowInputToggle : true//Important! See issue #1075
         });
-        $('#tanggalmulai').datetimepicker({
-                useCurrent: false,
-                viewMode: 'years',
-                format: 'YYYY-MM-DD'
-            });
-        $('#waktu').datetimepicker({
-                    format: 'LT'
-                });
-        $("#tanggalmulai").on("dp.change", function (e) {
-            $('#tanggalselesai').data("DateTimePicker").minDate(e.date);
-        });
-        $("#tanggalselesai").on("dp.change", function (e) {
-            $('#tanggalmulai').data("DateTimePicker").maxDate(e.date);
+        
+        $('#tanggal_agenda').datetimepicker({
+            useCurrent: false,
+            format: 'YYYY-MM-DD',
+            allowInputToggle : true//Important! See issue #1075
         });
     });
     // Closes the sidebar menu

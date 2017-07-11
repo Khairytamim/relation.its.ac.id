@@ -42,9 +42,13 @@
                         <div class="row">
                           <form action="{{route('updateacara')}}" method="post" enctype="multipart/form-data" >
                             <div class="col-sm-12 col-md-4">
-                            @isset($value->poster_acara)
-                              <img src="{{ asset($value->poster_acara) }}" style="height:100%;width: 100%">
-                            @endisset
+                            @if(isset($value->poster_acara))
+                            <div>
+                              <img class="gmbr" src="{{ asset($value->poster_acara) }}" style="height:100%;width: 100%">
+                              </div>
+                            @else
+                            <p><center>Uploader Tidak Mengupload Gambar</center></p>
+                            @endif
                             </div>
                             <div class="col-sm-12 col-md-4">
                               <input type="hidden" name="id_acara" value="{{$value->id_acara}}">
@@ -74,7 +78,7 @@
                               </div>
                               <div class="form-group" style="z-index: 100000">
                                 <label for="lokasi" class="control-label">Tanggal Agenda</label>
-                                <div class='input-group date' id='tanggalmulai'>
+                                <div class='input-group date' id='tanggal_agenda{{$value->id_acara}}'>
                                     <input type='text' class="form-control" value="{{$value->tanggal_mulai}}" name="tanggalmulai"  />
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
@@ -85,7 +89,7 @@
                             <div class="col-sm-12 col-md-4">
                               <div class="form-group" style="z-index: 100000">
                                 <label for="lokasi" class="control-label">Waktu Agenda</label>
-                                <div class='input-group date' id='tanggalmulai'>
+                                <div class='input-group date' id='waktu_agenda{{$value->id_acara}}'>
                                     <input type='text' class="form-control" value="{{$value->waktu_agenda}}" name="tanggalmulai"  />
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-time"></span>
@@ -142,20 +146,16 @@
     $(function () {
       $( ".tgl" ).on( "click", function() {
         console.log($(this).data('id'));
-        $('#tanggalselesai'+ $(this).data('id')).datetimepicker({
+        $('#waktu_agenda'+ $(this).data('id')).datetimepicker({
             useCurrent: false,
-            viewMode: 'years',
-            format: 'YYYY-MM-DD' //Important! See issue #1075
+            format: 'HH:mm:ss',
+            allowInputToggle : true//Important! See issue #1075
         });
-        $('#tanggalmulai' + $(this).data('id')).datetimepicker({
-                viewMode: 'years',
-                format: 'YYYY-MM-DD'
-            });
-        $("#tanggalmulai" + $(this).data('id')).on("dp.change", function (e) {
-            $('#tanggalselesai').data("DateTimePicker").minDate(e.date);
-        });
-        $("#tanggalselesai" + $(this).data('id') ).on("dp.change", function (e) {
-            $('#tanggalmulai').data("DateTimePicker").maxDate(e.date);
+        
+        $('#tanggal_agenda'+ $(this).data('id')).datetimepicker({
+            useCurrent: false,
+            format: 'YYYY-MM-DD',
+            allowInputToggle : true//Important! See issue #1075
         });
         
       });
@@ -168,7 +168,13 @@
     $(document).ready(function() {
       $('#example').DataTable();
     });
+
+    $(".gmbr").on('error', function() {
+      
+      $(this).closest('div').html('<p><center>Gambar Error</center></p>')
+    })
   });
+
 </script>
 
 @endsection
