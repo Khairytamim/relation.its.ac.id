@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Storage;
 use File;
 use Response;
-
+use Route;
 use App\Acara;
 use Uuid;
 // use Response;
@@ -16,9 +16,9 @@ use App\Mail\KonfirmasiAcara;
 
 class AcaraController extends Controller
 {
-    public function __construct()
+    public function __construct(Route $route)
     {
-        if($route->getActionMethod($route)!='jadwal') $this->middleware('auth');
+        // if($route->getActionMethod($route)!='jadwal') $this->middleware('auth');
 
         // $this->middleware('auth');
     }

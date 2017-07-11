@@ -116,20 +116,16 @@
 
 <script type="text/javascript">
     $(function () {
-        $('#tanggalselesai').datetimepicker({
+        $('#waktu_agenda').datetimepicker({
             useCurrent: false,
-            viewMode: 'years',
-            format: 'YYYY-MM-DD' //Important! See issue #1075
+            format: 'HH:mm:ss',
+            allowInputToggle : true//Important! See issue #1075
         });
-        $('#tanggalmulai').datetimepicker({
-                viewMode: 'years',
-                format: 'YYYY-MM-DD'
-            });
-        $("#tanggalmulai").on("dp.change", function (e) {
-            $('#tanggalselesai').data("DateTimePicker").minDate(e.date);
-        });
-        $("#tanggalselesai").on("dp.change", function (e) {
-            $('#tanggalmulai').data("DateTimePicker").maxDate(e.date);
+        
+        $('#tanggal_agenda').datetimepicker({
+            useCurrent: false,
+            format: 'YYYY-MM-DD',
+            allowInputToggle : true//Important! See issue #1075
         });
     });
 </script>

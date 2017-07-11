@@ -17,24 +17,27 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin','middleware' => 'auth'] , function () {
 	Route::get('/', 'AcaraController@index')->name('admin');
-	Route::get('/list', 'AcaraController@list')->name('listadmin');
-	Route::get('/confirm', 'AcaraController@confirm')->name('konfirmasiadmin');
+	Route::get('/confirmed', 'AcaraController@list')->name('listadmin');
+	Route::get('/confirmation', 'AcaraController@confirm')->name('konfirmasiadmin');
+	Route::post('/acara/notes', 'AcaraController@notes')->name('notes');
+	Route::post('/acara/delete', 'AcaraController@delete')->name('deleteacara');
+	Route::post('/update', 'AcaraController@update')->name('updateacara');
+	
+
+
 
 });
 
 Route::group(['prefix' => 'acara'], function () {
 	Route::get('/', 'AcaraController@home')->name('acara');
 	Route::post('/add', 'AcaraController@add')->name('addacara');
-	Route::post('/update', 'AcaraController@update')->name('updateacara');
 	Route::post('/updateemail', 'AcaraController@updateemail')->name('updateemailacara');
-	Route::post('/delete', 'AcaraController@delete')->name('deleteacara');
 	Route::post('/jadwal', 'AcaraController@jadwal')->name('jadwalajax');
 	Route::get('/lihat', 'AcaraController@lihat')->name('lihatacara');
-	Route::post('/notes', 'AcaraController@notes')->name('notes');
 	Route::get('/panduan', 'HomeController@panduan')->name('panduan');
 
 
