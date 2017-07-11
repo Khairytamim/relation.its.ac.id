@@ -20,16 +20,14 @@ Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin','middleware' => 'auth'] , function () {
-	Route::get('/', 'AcaraController@index')->name('admin');
+	Route::get('/', function(){
+		return redirect(route('konfirmasiadmin'));
+	});
 	Route::get('/confirmed', 'AcaraController@list')->name('listadmin');
 	Route::get('/confirmation', 'AcaraController@confirm')->name('konfirmasiadmin');
 	Route::post('/acara/notes', 'AcaraController@notes')->name('notes');
 	Route::post('/acara/delete', 'AcaraController@delete')->name('deleteacara');
-	Route::post('/update', 'AcaraController@update')->name('updateacara');
-	
-
-
-
+	Route::post('/acara/update', 'AcaraController@update')->name('updateacara');
 });
 
 Route::group(['prefix' => 'acara'], function () {
