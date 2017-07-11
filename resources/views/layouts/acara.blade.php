@@ -24,10 +24,10 @@
 <body style="background-image:url('bg.png'); background-repeat: repeat;background-size: 100%">
     <div id="app">
         <!-- Navigation -->
-        <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle">MENU</a>
+        <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle" style="background-color: #ffcb10;border: none; color: #20417f">MENU</a>
         <nav id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><b>x</b></a>
+                <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle" style="background-color: #ffcb10;border: none; color: #20417f"><b>x</b></a>
                 <li><h2 style="color: white">HUMAS<b>ITS</b></h2></li>
                 <li>
                     <a href="#calender" onclick=$("#menu-close").click();>Kalender</a>
@@ -36,7 +36,7 @@
                     <a href="#panduan" onclick=$("#menu-close").click();>Panduan</a>
                 </li>
                 <li>
-                    <a href="#event" onclick=$("#menu-close").click();>Submit Acara</a>
+                    <a href="#acara" onclick=$("#menu-close").click();>Submit Acara</a>
                 </li>
             </ul>
         </nav>
