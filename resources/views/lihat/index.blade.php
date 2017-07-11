@@ -143,7 +143,7 @@
               <label for="lokasi" class="control-label">Waktu Agenda</label>
               
                   <div class='input-group date' id='waktu_agenda'>
-                      <input type='text' class="form-control" name="waktu" disabled />
+                      <input type='text' class="form-control" value="{{$value->waktu_agenda}}" name="waktu" disabled  />
                       <span class="input-group-addon">
                           <span class="glyphicon glyphicon-time"></span>
                       </span>

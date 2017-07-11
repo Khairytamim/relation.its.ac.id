@@ -30,30 +30,35 @@
 </section>
 <div class="modal fade" id="event" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
+    <div class="modal-content"> {{-- kalo mau ngasih warna ke modalnya --}}
       <div class="modal-body">
-        <div class="form-group">
-          <label>Nama Agenda:</label><br>
-          <span id="namaagenda"></span>
-          
-       
-        </div>
-        <div class="form-group">
-            <label>Poster:</label><br>
-             <div id="divgambar">
-              <img id="gambar" src="" style="height:100%;width: 100%"/>
+        <div class="row">
+            <div class="col-sm-4">
+                <div id="divgambar">
+                    <img id="gambar" src="" style="height:100%;width: 100%"/>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <label>Nama Acara</label><br>
+                <span id="namaacara"></span><br>
+                <label>Deskripsi Acara</label><br>
+                <span id="deskripsiacara"></span><br>
+            </div>
+            <div class="col-sm-4">
+                <label>Nama Agenda</label><br>
+                <span id="namaagenda"></span><br>
+                <label>Deskripsi Agenda</label><br>
+                <span id="deskripsiagenda"></span><br>
+                <label>Lokasi Agenda</label><br>
+                <span id="lokasiagenda"></span><br>
+                <label>Tanggal dan Waktu Agenda</label><br>
+                <span id="tanggalagenda"></span>
+                <span id="waktuagenda"></span><br>
             </div>
         </div>
-        
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <div class="modal-foooter">  
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+        </div>
       </div>
     </div>
   </div>
@@ -249,7 +254,13 @@
                     })
                       .done(function( msg ) {
                         // $('#namaacara').html(msg.id_acara);
+                        $('#namaacara').html(msg.nama_acara);
+                        $('#deskripsiacara').html(msg.deskripsi_acara);
                         $('#namaagenda').html(msg.nama_agenda);
+                        $('#deskripsiagenda').html(msg.deskripsi_agenda);
+                        $('#lokasiagenda').html(msg.lokasi_agenda);
+                        $('#tanggalagenda').html(msg.tanggal_mulai);
+                        $('#waktuagenda').html(msg.waktu_agenda);
                     
                         var img = $("#gambar").attr('src', '{{url('')}}/'+msg.poster_acara)
                         .on('load', function() {

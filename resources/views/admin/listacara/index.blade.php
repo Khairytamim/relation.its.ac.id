@@ -35,43 +35,24 @@
                   <td>{{$value->nama_agenda}}</td>
                   <td>{{$value->lokasi_agenda}}</td>
                   <td>{{$value->tanggal_mulai}}</td>
-                  <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#b{{$value->id_acara}}">Delete</button></td>
+                  <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#b{{$value->id_acara}}">Delete</button></td>
                 </tr>
-                <!-- Modal -->
-                {{-- <div class="modal fade" id="b{{$value->id_acara}}" role="dialog">
-                  <div class="modal-dialog">
-                    <form action="{{ route('deleteacara') }}" method="post">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Anda Yakin Ingin Menghapus</h4>
-                        <input type="hidden" name="id" value="{{$value->id_acara}}">
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
-                        <button type="submit" class="btn btn-default" data-dismiss="modal">Yakin</button>
-                      </div>
-                    </div>
-                    {{ csrf_field() }}
-                    </form>
-                  </div>
-                </div> --}}
                 <div class="modal fade" id="b{{$value->id_acara}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        <h4 class="modal-title" id="myModalLabel">Menghapus Acara</h4>
                       </div>
                       <div class="modal-body">
                         <form action="{{ route('deleteacara') }}" method="post">
                           <input type="hidden" name="id" value="{{$value->id_acara}}">
                           {{ csrf_field() }}
+                          <p>Apakah anda yakin ingin menghapus Acara <b>{{$value->nama_agenda}}</b> di <b>{{$value->lokasi_agenda}}</b> pada <b>{{$value->tanggal_mulai}}</b>?</p>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+                        <button type="submit" class="btn btn-primary">Yakin</button>
                         </form>
 
                       </div>
