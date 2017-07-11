@@ -6,9 +6,13 @@
     <div class="row">
       <form action="{{route('updateemailacara')}}" method="post" enctype="multipart/form-data" >
         <div class="col-sm-12 col-md-4">
-        @isset($value->poster_acara)
-          <img src="{{ asset($value->poster_acara) }}" style="height:100%;width: 100%">
-        @endisset
+          @if(isset($value->poster_acara))
+          <div>
+            <img class="gmbr" src="{{ asset($value->poster_acara) }}" style="height:100%;width: 100%">
+            </div>
+          @else
+          <p><center>Uploader Tidak Mengupload Gambar</center></p>
+          @endif
         </div>
         <div class="col-sm-12 col-md-4">
         @if (session('status'))
