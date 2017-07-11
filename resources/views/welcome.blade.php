@@ -38,10 +38,18 @@
       <div class="modal-body">
         <div class="form-group">
           <label>Nama Agenda:</label><br>
-          <span id="namaagenda"></span><br>
-          <label>Poster:</label><br>
-          <img id="gambar" src="" style="height:100%;width: 100%"/>
+          <span id="namaagenda"></span>
+          
+       
         </div>
+        <div class="form-group">
+            <label>Poster:</label><br>
+             <div id="divgambar">
+              <img id="gambar" src="" style="height:100%;width: 100%"/>
+            </div>
+        </div>
+        
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -250,6 +258,9 @@
                             } else {
                                 $("#something").append(img);
                             }
+                        })
+                        .on('error', function() {
+                          $('#divgambar').html('Poster tidak tersedia');
                         });
 
                         $('#event').modal('show');
