@@ -44,7 +44,7 @@
               </div>
               <div class="form-group">
                   <label for="lokasi" class="control-label">Lokasi Agenda</label>
-                  <input id="lokasi" type="text" class="form-control" name="lokasi_agenda" value="{{$value->lokasi_agenda}}" required>
+                  <input id="lokasi" type="text" class="form-control" name="lokasi" value="{{$value->lokasi_agenda}}" required>
               </div>
               <div class="form-group" style="z-index: 100000">
                 <label for="lokasi" class="control-label">Tanggal Agenda</label>
@@ -58,7 +58,7 @@
               <div class="form-group">
                   <label for="lokasi">Waktu Agenda</label>
                       <div class='input-group date' id='waktu_agenda'>
-                          <input type='text' class="form-control" value="{{$value->waktu_agenda}}" name="waktu_agenda" required />
+                          <input type='text' class="form-control" value="{{$value->waktu_agenda}}" name="waktu" required />
                           <span class="input-group-addon">
                               <span class="glyphicon glyphicon-time"></span>
                           </span>
@@ -128,7 +128,7 @@
           </div>
           <div class="form-group">
               <label for="lokasi" class="control-label">Lokasi Agenda</label>
-              <input id="lokasi" type="text" class="form-control" name="lokasi_agenda" value="{{$value->lokasi_agenda}}" disabled>
+              <input id="lokasi" type="text" class="form-control" name="lokasi" value="{{$value->lokasi_agenda}}" disabled>
           </div>
           <div class="form-group" style="z-index: 100000">
             <label for="lokasi" class="control-label">Tanggal Agenda</label>
