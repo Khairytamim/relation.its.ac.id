@@ -9,14 +9,17 @@
         <a href="#calender" class="btn btn-dark btn-lg" style="background-color: #ffcb10;border: none; color: #20417f">Silahkan Jelajahi</a>
     </div>
 </header>
-<section id="calender" style="margin-top: 3vh;background: rgba(255,203,16,0.9);">
+{{-- <section id="calender" style="margin-top: 3vh;background: rgba(255,203,16,0.8);"> --}}
+<section id="calender" style="margin-top: 3vh;background: rgba(255,255,255,0.9);">
 <div class="container">
-    <div style="margin-top: 3vh;">
+    <div style="margin-top: 3vh;margin-bottom: 3vh;">
         <div style="text-align: center;">
-            <h1>Kalender Acara</h1>
+            <h2>KALENDER ACARA</h2>
         </div>
-        <div class="panel-body">
-            <div id="calendar" ></div>  
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-sm-12">
+                <div id="calendar" ></div>
+            </div>
         </div>
     </div>
 </div>
@@ -66,7 +69,7 @@
 <section id="acara" style="background: rgba(32,65,127,0.8);">
 <div class="container">
     <div style="text-align: center;">
-        <h1 style="color: white">Submit Acara</h1>
+        <h2 style="color: white">SUBMIT ACARA</h2>
         @if (session('status'))
               <div class="alert alert-success">
                   {{ session('status') }}
@@ -106,7 +109,7 @@
             <div class="form-group">
                 <label for="poster" class="col-md-4 control-label" style="color: white">Poster Acara</label>
                 <div class="col-md-8">
-                    <input type="file" name="poster" id="exampleInputFile">
+                    <input type="file" name="poster" id="exampleInputFile" style="background-color: white; border-radius: 5px">
                 </div>
             </div>
         </div>
