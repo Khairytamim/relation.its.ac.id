@@ -92,9 +92,12 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li id="aktifconfirmed"class=""><a href="{{route('listadmin')}}"><i class="fa fa-circle-o"></i>Confirmed</a></li>
-                <li id="aktifconfirmation"class=""><a href="{{route('konfirmasiadmin')}}"><i class="fa fa-circle-o"></i>Confirmation</a></li>
+                <li id="anakconfirmed"class=""><a href="{{route('listadmin')}}"><i class="fa fa-circle-o"></i>Confirmed</a></li>
+                <li id="anakconfirmation"class=""><a href="{{route('konfirmasiadmin')}}"><i class="fa fa-circle-o"></i>Confirmation</a></li>
               </ul>
+            </li>
+            <li class="" id="aktifusers">
+              <a href="{{route('users')}}"><i class="fa fa-user"></i> <span>User</span></a>
             </li>
           </ul>
         </section>

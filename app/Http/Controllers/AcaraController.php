@@ -19,7 +19,7 @@ class AcaraController extends Controller
 {
     public function __construct(Route $route)
     {
-        // if($route->getActionMethod($route)!='jadwal') $this->middleware('auth');
+        // if($route->getActionMethod($route)!='jadwal' ) $this->middleware('auth');
 
         // $this->middleware('auth');
     }
@@ -58,8 +58,8 @@ class AcaraController extends Controller
 
     public function list()
     {
-        $this->setActive('list');
-        $this->setTitle('list');
+        $this->setActive('acara');
+        $this->setTitle('confirmed');
         $this->data['acara'] = Acara::where('status', 1)->orderBy('created_at', "desc")->get();
         //dd($halo);
 
@@ -68,8 +68,8 @@ class AcaraController extends Controller
 
     public function confirm()
     {
-        $this->setActive('list');
-        $this->setTitle('list');
+        $this->setActive('acara');
+        $this->setTitle('confirmation');
         $this->data['acara'] = Acara::where('status', 0)->orderBy('created_at', "desc")->get();
         //dd($this->data['acara']);
 

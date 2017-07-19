@@ -15,7 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+// Auth::routes();
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
@@ -40,6 +43,13 @@ Route::group(['prefix' => 'acara'], function () {
 
 
 });
+
+Route::group(['prefix' => 'admin/users'], function () {
+	Route::get('/', 'UserController@index')->name('users');
+	Route::post('/add', 'UserController@add')->name('adduser');
+
+});
+
 Route::get('/event/detail', 'AcaraController@event')->name('getevent');
 
 Route::group(['prefix' => 'user'], function () {
