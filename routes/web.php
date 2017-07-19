@@ -41,6 +41,7 @@ Route::group(['prefix' => 'acara'], function () {
 
 });
 Route::get('/event/detail', 'AcaraController@event')->name('getevent');
+
 Route::group(['prefix' => 'user'], function () {
 	Route::get('/', 'AcaraController@user')->name('user');
 });
