@@ -29,7 +29,7 @@
                     <td>{{$value->nama_agenda}}</td>
                     <td>{{$value->lokasi_agenda}}</td>
                     <td>{{$value->tanggal_mulai}}</td>
-                    <td style="width: 13vw"><a class="btn btn-primary" data-toggle="modal" data-id="{{$value->id_acara}}" data-target="#{{$value->id_acara}}">Edit</a><a class="btn btn-danger" style="margin-left: 10%" data-toggle="modal" data-id="{{$value->id_acara}}" data-target="#b{{$value->id_acara}}">Delete</a></td>
+                    <td style="width: 13vw"><a class="btn btn-primary tgl" data-toggle="modal" data-id="{{$value->id_acara}}" data-target="#{{$value->id_acara}}">Edit</a><a class="btn btn-danger" style="margin-left: 10%" data-toggle="modal" data-id="{{$value->id_acara}}" data-target="#b{{$value->id_acara}}">Delete</a></td>
                   </tr>
                   <!-- Modal Delete -->
                   <div class="modal fade" id="b{{$value->id_acara}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -174,13 +174,13 @@
         $('#waktu_agenda'+ $(this).data('id')).datetimepicker({
             useCurrent: false,
             format: 'HH:mm:ss',
-            allowInputToggle : true//Important! See issue #1075
+            allowInputToggle : true
         });
         
         $('#tanggal_agenda'+ $(this).data('id')).datetimepicker({
             useCurrent: false,
             format: 'YYYY-MM-DD',
-            allowInputToggle : true//Important! See issue #1075
+            allowInputToggle : true
         });
         
       });
