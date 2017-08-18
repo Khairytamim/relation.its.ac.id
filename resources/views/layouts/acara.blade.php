@@ -22,6 +22,7 @@
     <!--fullcalender-->
     <link rel="stylesheet" href="{{ asset('css/fullcalendar.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fullcalendar.print.min.css') }}" media="print">
+    <link rel="stylesheet" href="{{url('/admindist/dist/css/sweetalert.css')}}">
 </head>
 <body style="background-image:url('bg.png'); background-repeat: repeat;background-size: 100%">
     <div id="app">
@@ -91,6 +92,8 @@
     <script src="{{ asset('js/fullcalendar.min.js') }}"></script>
     <!--datepicker-->
     <script src="{{ asset('admindist/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script src="{{url('/admindist/dist/js/sweetalert.min.js')}}"></script>
+
     @yield('js')    
 </body>
 </html>

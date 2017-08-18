@@ -14,6 +14,7 @@ use Validator;
 use DB;
 use Mail;
 use App\Mail\KonfirmasiAcara;
+use Carbon\Carbon;
 
 class AcaraController extends Controller
 {
@@ -79,8 +80,10 @@ class AcaraController extends Controller
     public function add(Request $request)
     {
 
-        $messages["id_pertanyaan.required"]="id_pertanyaan dibutuhkan";
-            
+        // $messages["id_pertanyaan.required"]="id_pertanyaan dibutuhkan";
+        $messages["tanggalmulai.after"]="Tanggal yang anda masukkan harus tujuh hari atau satu minggu setelah hari ini";
+        $messages['waktu.date_format']="Waktu yang anda masukkan tidak sesuai format. contoh: 17:25:00";
+
 
 
             //echo var_dump($result);
@@ -89,15 +92,15 @@ class AcaraController extends Controller
             'namapic' => 'required',
             'namaacara' => 'required',
             'lokasi' => 'required',
-            'kontakpic' => 'required',
+            'kontakpic' => 'required', 
             'deskripsi_agenda' => 'required',
             'deskripsi' => 'required',
             'nama_agenda' => 'required',
-            'tanggalmulai' => 'required',
-            'waktu' => 'required',
+            'tanggalmulai' => 'required|date_format:Y-m-d|after:'.Carbon::now()->addWeek()->toDateString().'',
+            'waktu' => 'required:date_format:H:i:s',
                         
             
-        ]);
+        ], $messages);
 
         if ($validator->fails()) {
             return back()

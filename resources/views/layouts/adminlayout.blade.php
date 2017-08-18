@@ -20,6 +20,7 @@
     <!-- <script src="https://use.fontawesome.com/a50b71a92d.js"></script> -->
 
     <link rel="stylesheet" href="{{url('/admindist/plugins/datatables/dataTables.bootstrap.css')}}">
+    {{-- <link rel="stylesheet" type="text/css" href=""> --}}
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
@@ -27,6 +28,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
     folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{url('/admindist/dist/css/skins/_all-skins.min.css')}}">
+    <link rel="stylesheet" href="{{url('/admindist/dist/css/sweetalert.css')}}">
 
       @yield('gaya')
     
@@ -135,11 +137,13 @@
 <script src="{{url('/admindist/plugins/fastclick/fastclick.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{url('/admindist/dist/js/app.min.js')}}"></script>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.2/socket.io.js"></script>
 <!-- AdminLTE for demo purposes -->
 
   
 <script src="{{url('/admindist/dist/js/demo.js')}}"></script>
+<script src="{{url('/admindist/dist/js/sweetalert.min.js')}}"></script>
 <script type="text/javascript">
   $(function () {
     $('#aktif{{$active}}').toggleClass('active');
