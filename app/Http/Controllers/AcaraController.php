@@ -80,7 +80,6 @@ class AcaraController extends Controller
     public function add(Request $request)
     {
 
-        // $messages["id_pertanyaan.required"]="id_pertanyaan dibutuhkan";
         $messages["tanggalmulai.after"]="Tanggal yang anda masukkan harus tujuh hari atau satu minggu setelah hari ini";
         $messages['waktu.date_format']="Waktu yang anda masukkan tidak sesuai format. contoh: 17:25:00";
 

@@ -28,7 +28,8 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
     folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{url('/admindist/dist/css/skins/_all-skins.min.css')}}">
-    <link rel="stylesheet" href="{{url('/admindist/dist/css/sweetalert.css')}}">
+    {{-- <link rel="stylesheet" href="{{url('/admindist/dist/css/sweetalert.css')}}"> --}}
+    <link href="https://cdn.jsdelivr.net/sweetalert2/5.3.8/sweetalert2.css" rel="stylesheet"/>
 
       @yield('gaya')
     
@@ -143,7 +144,8 @@
 
   
 <script src="{{url('/admindist/dist/js/demo.js')}}"></script>
-<script src="{{url('/admindist/dist/js/sweetalert.min.js')}}"></script>
+{{-- <script src="{{url('/admindist/dist/js/sweetalert.min.js')}}"></script> --}}
+<script src="https://cdn.jsdelivr.net/sweetalert2/5.3.8/sweetalert2.js"></script>
 <script type="text/javascript">
   $(function () {
     $('#aktif{{$active}}').toggleClass('active');

@@ -24,48 +24,13 @@
     </div>
 </div>
 </section>
-<section id="panduan">
-{{-- <div class="container">
+{{-- <section id="panduan">
+<div class="container">
     <div class="panel" style="text-align: center;">
         <h1>Panduan Pengisian Acara</h1>
     </div>
-</div> --}}
-</section>
-<div class="modal fade" id="event" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content"> {{-- kalo mau ngasih warna ke modalnya --}}
-      <div class="modal-body">
-        <div class="row">
-            <div class="col-sm-4">
-                <div id="divgambar">
-                    <img id="gambar" src="" style="height:100%;width: 100%"/>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <label>Nama Acara</label><br>
-                <span id="namaacara"></span><br>
-                <label>Deskripsi Acara</label><br>
-                <span id="deskripsiacara"></span><br>
-            </div>
-            <div class="col-sm-4">
-                <label>Nama Agenda</label><br>
-                <span id="namaagenda"></span><br>
-                <label>Deskripsi Agenda</label><br>
-                <span id="deskripsiagenda"></span><br>
-                <label>Lokasi Agenda</label><br>
-                <span id="lokasiagenda"></span><br>
-                <label>Tanggal dan Waktu Agenda</label><br>
-                <span id="tanggalagenda"></span>
-                <span id="waktuagenda"></span><br>
-            </div>
-        </div>
-        <div class="modal-foooter">  
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
+</section> --}}
 <section id="acara" style="background: rgba(32,65,127,0.8);">
 <div class="container">
     <div style="text-align: center;">

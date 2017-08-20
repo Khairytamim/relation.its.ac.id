@@ -27,7 +27,7 @@
 <body style="background-image:url('bg.png'); background-repeat: repeat;background-size: 100%">
     <div id="app">
         <!-- Navigation -->
-        <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle" style="background-color: #ffcb10;border: none; color: #20417f">MENU</a>
+        <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle" style="z-index: 1000; background-color: #ffcb10;border: none; color: #20417f">MENU</a>
         <nav id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle" style="background-color: #ffcb10;border: none; color: #20417f"><b>x</b></a>

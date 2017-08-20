@@ -138,7 +138,7 @@
                                 </div>
                               {{ csrf_field() }}
                             </form>
-                              <form action="{{route('notes')}}" method="post">
+                              <form id="sent" action="{{route('notes')}}" method="post">
                                     <div class="form-group">
                                       <label class="control-label">Note</label>
                                       <textarea class="form-control" name="note" rows="4"></textarea>
@@ -201,7 +201,11 @@
       $(this).closest('div').html('<p><center>Poster Error</center></p>')
     })
   });
-
+  $( "#sent" ).submit(function( event ) {
+    // swal("Loading","done","success");
+    swal('Submit Pertanyaan')
+    swal.showLoading()
+  });
 </script>
 
 @endsection
