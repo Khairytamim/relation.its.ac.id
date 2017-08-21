@@ -15,6 +15,7 @@ use DB;
 use Mail;
 use App\Mail\KonfirmasiAcara;
 use Carbon\Carbon;
+use App\Mail\NotifikasiPertanyaan;
 
 class AcaraController extends Controller
 {
@@ -132,6 +133,8 @@ class AcaraController extends Controller
         $create->waktu_agenda = $request->waktu;
         $create->save();
 
+        Mail::to('melania.muntini@gmail.com')->cc('hlmn.hg@gmail.com')->send(new NotifikasiPertanyaan($create->id_acara));
+
         return back()->with('status', 'Sukses!');
     }
 
@@ -160,7 +163,7 @@ class AcaraController extends Controller
         $update->waktu_agenda = $request->waktu;
         $update->save();
 
-        
+        Mail::to($query->email_pengaju)->send(new KonfirmasiAcara($this->data));
 
         return back()->with('status','Data Updated!');
     }

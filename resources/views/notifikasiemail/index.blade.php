@@ -39,7 +39,7 @@
              </tr>
              <tr>
               <td style="padding: 20px 0 30px 0;">
-               {{ URL::to(route("lihatacara").'?id='. $result->id_acara) }}
+               {{ URL::to(route("lihatacara").'?id='. $acara->id_acara) }}
               </td>
              </tr>
             </table>
