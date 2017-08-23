@@ -100,6 +100,9 @@
               </ul>
             </li>
             <li class="" id="aktifusers">
+              <a href="{{route('statistik')}}"><i class="fa fa-pie-chart"></i> <span>Statistik</span></a>
+            </li>
+            <li class="" id="aktifusers">
               <a href="{{route('users')}}"><i class="fa fa-user"></i> <span>User</span></a>
             </li>
           </ul>
