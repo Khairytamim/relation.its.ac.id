@@ -17,6 +17,7 @@ use App\Mail\KonfirmasiAcara;
 use Carbon\Carbon;
 use App\Mail\NotifikasiPertanyaan;
 
+
 class AcaraController extends Controller
 {
     public function __construct(Route $route)
@@ -140,7 +141,9 @@ class AcaraController extends Controller
 
     public function update(Request $request)
     {
+
         $update = Acara::find($request->id_acara);
+        if($update->status == 0) $update->waktu_konfirmasi = Carbon::now()->toDateString();
         $update->pengaju_acara = $request->namapic;
         $update->nama_acara = $request->namaacara;
         $update->lokasi_agenda = $request->lokasi;
@@ -163,7 +166,7 @@ class AcaraController extends Controller
         $update->waktu_agenda = $request->waktu;
         $update->save();
 
-        Mail::to($query->email_pengaju)->send(new KonfirmasiAcara($this->data));
+        // Mail::to($query->email_pengaju)->send(new KonfirmasiAcara($this->data));
 
         return back()->with('status','Data Updated!');
     }

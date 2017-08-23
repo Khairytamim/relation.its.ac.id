@@ -49,6 +49,14 @@ Route::group(['prefix' => 'admin/users'], function () {
 	Route::post('/add', 'UserController@add')->name('adduser');
 
 });
+Route::group(['prefix' => 'admin/statistik'], function () {
+	Route::get('/', 'StatistikController@index')->name('statistik');
+	Route::get('/ajax', 'StatistikController@ajax')->name('statistikajax');
+
+
+	// Route::post('/add', 'UserController@add')->name('adduser');
+
+});
 
 Route::get('/event/detail', 'AcaraController@event')->name('getevent');
 

@@ -10,4 +10,9 @@ class Acara extends Model
     protected $primaryKey = 'id_acara';
     public $timestamps = true;
     public $incrementing = false;
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'waktu_konfirmasi'
+    ];
 }
