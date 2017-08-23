@@ -99,7 +99,7 @@
                 <li id="anakconfirmation"class=""><a href="{{route('konfirmasiadmin')}}"><i class="fa fa-circle-o"></i>Confirmation</a></li>
               </ul>
             </li>
-            <li class="" id="aktifusers">
+            <li class="" id="aktifstatistik">
               <a href="{{route('statistik')}}"><i class="fa fa-pie-chart"></i> <span>Statistik</span></a>
             </li>
             <li class="" id="aktifusers">

@@ -20,10 +20,10 @@ class StatistikController extends Controller
     	$this->setActive('statistik');
         $this->setTitle('statistik');
 
-    	$acara = Acara::select('*', DB::raw('DATEDIFF(DATE(waktu_konfirmasi),DATE(created_at)) as respon_1'))->get();
+    	$acara = Acara::select('*', DB::raw('DATEDIFF(DATE(waktu_konfirmasi),DATE(created_at)) as respon_1'))->orderBy('created_at', 'desc')->get();
     	$this->data['acara'] = $acara;
 
-    	return view('statistik.index', $this->data);
+    	return view('admin.statistik.index', $this->data);
     }
 
     public function ajax(Request $request)
