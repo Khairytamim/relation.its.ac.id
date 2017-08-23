@@ -34,6 +34,7 @@ class StatistikController extends Controller
     	
     	$this->data['confirmed'] = $acara->where('status', 1)->count();
     	$this->data['unconfirmed'] = $acara->where('status', 0)->count();
+    	$this->data['total'] = $acara->count();
 
     	$respon1=0;
         $respon2=0;
@@ -49,6 +50,7 @@ class StatistikController extends Controller
 
     		// echo $tes->toDateString() . ' ' .$value->waktu_konfirmasi. ' ' . $tes->diffInDays($value->waktu_konfirmasi).'<br>';
     		$respon1 = $respon1 + $value->respon_1;
+    		// echo $value->respon_1.'<br>';
     	}
     	if($jumlahrespon1 == 0) $this->data['avgrespon1'] = 0;
         else $this->data['avgrespon1'] = $respon1/$jumlahrespon1;
