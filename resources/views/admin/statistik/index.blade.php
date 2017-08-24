@@ -21,7 +21,9 @@
             <thead>
               <tr>
                 <th>Nama Agenda</th>
+                <th>Status</th>
                 <th>Waktu Konfirmasi (Hari)</th>
+
                 
                 
               </tr>
@@ -30,6 +32,13 @@
               @foreach($acara as $value)
                 <tr>
                   <td>{{$value->nama_agenda}}</td>
+                  <td>
+                    @if($value->status == 1)
+                      CONFIRMED
+                    @else
+                      UNCONFIRMED
+                    @endif
+                  </td>
                   <td>{{$value->respon_1}}</td>
                 </tr>
               @endforeach
@@ -40,6 +49,34 @@
       </div>
     </div>
     
+  </div>
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header with-border">
+        <i class="fa fa-bar-chart-o"></i>
+
+        <h3 class="box-title">Rata-Rata Waktu Konfirmasi</h3>
+
+        {{-- <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div> --}}
+      </div>
+      <div class="box-body">
+        <div class="row">
+          <div class="col-xs-9">
+          <div id="bar-chart" style="height: 300px; padding: 0px; position: relative;"><canvas class="flot-base" width="829" height="300" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 829px; height: 300px;"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 184px; top: 283px; left: 38px; text-align: center;">January</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 184px; top: 283px; left: 178px; text-align: center;">February</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 184px; top: 283px; left: 328px; text-align: center;">March</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 184px; top: 283px; left: 475px; text-align: center;">April</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 184px; top: 283px; left: 619px; text-align: center;">May</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 184px; top: 283px; left: 759px; text-align: center;">June</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 270px; left: 7px; text-align: right;">0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 203px; left: 7px; text-align: right;">5</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 135px; left: 1px; text-align: right;">10</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 68px; left: 1px; text-align: right;">15</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 0px; left: 1px; text-align: right;">20</div></div></div><canvas class="flot-overlay" width="829" height="300" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 829px; height: 300px;"></canvas></div>
+          </div>
+          <div class="col-xs-3">
+            <ul class="chart-legend clearfix">
+              <li><i class="fa fa-circle"  style="color: #3c8dbc"></i> Waktu Konfirmasi : <b id="avg"></b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- /.box-body-->
+    </div>
   </div>
   <div class="col-md-12">
     <div class="box box-danger">
@@ -96,30 +133,30 @@
         url: "{{route('statistikajax')}}"
       })
         .done(function( msg ) {
+          $('#avg').html(msg.avgrespon1);
+          var bar_data = {
+            data : [['Waktu Konfirmasi', msg.avgrespon1]],
+            color: '#3c8dbc'
+          }
 
-          // var bar_data = {
-          //   data : [['Respon 1', msg.avgrespon1], ['Respon 2', msg.avgrespon2]],
-          //   color: '#3c8dbc'
-          // }
-
-          // $.plot('#bar-chart', [bar_data], {
-          //   grid  : {
-          //     borderWidth: 1,
-          //     borderColor: '#f3f3f3',
-          //     tickColor  : '#f3f3f3'
-          //   },
-          //   series: {
-          //     bars: {
-          //       show    : true,
-          //       barWidth: 0.5,
-          //       align   : 'center'
-          //     }
-          //   },
-          //   xaxis : {
-          //     mode      : 'categories',
-          //     tickLength: 0
-          //   }
-          // })
+          $.plot('#bar-chart', [bar_data], {
+            grid  : {
+              borderWidth: 1,
+              borderColor: '#f3f3f3',
+              tickColor  : '#f3f3f3'
+            },
+            series: {
+              bars: {
+                show    : true,
+                barWidth: 0.5,
+                align   : 'center'
+              }
+            },
+            xaxis : {
+              mode      : 'categories',
+              tickLength: 0
+            }
+          })
           
           var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
           var pieChart       = new Chart(pieChartCanvas)

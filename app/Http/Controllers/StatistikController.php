@@ -41,7 +41,8 @@ class StatistikController extends Controller
         $jumlahrespon1=0;
         
 
-    	foreach ($acara as $key => $value) {
+    	foreach ($acara->where('status', 1) as $key => $value) {
+    		// echo 'a';
     		$jumlahrespon1++;
     		// $tes = Carbon::parse($value->created_at);
     		// $tes->hour = 0;
