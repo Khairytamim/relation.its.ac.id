@@ -91,7 +91,7 @@
 
     </div>
     <div class="row">
-        <form class="form-horizontal" role="form" method="POST" action="{{ route('addacara') }}" enctype="multipart/form-data">
+        <form id="sent" class="form-horizontal" role="form" method="POST" action="{{ route('addacara') }}" enctype="multipart/form-data">
             {{ csrf_field() }}
         <div class="col-md-6">
             <h3 style="text-align: right;color: white">DETAIL ACARA</h3>
@@ -228,7 +228,13 @@
 
 @endsection
 @section('js')
-
+<script>
+$( "#sent" ).submit(function( event ) {
+  // swal("Loading","done","success");
+  swal('Sedang Mengupload Data')
+  swal.showLoading()
+});
+</script>
 <script type="text/javascript">
     $(function () {
         $('#waktu_agenda').datetimepicker({

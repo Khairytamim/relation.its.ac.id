@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="{{url('/admindist/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url('/admindist/css/bootstrap-datetimepicker.min.css')}}">
     <link rel="stylesheet" href="{{url('/admindist/css/jquery-ui.css')}}">
-    
-    <!-- Font Awesome -->
+    <!-- Font Awesome -->    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <script src="https://use.fontawesome.com/a50b71a92d.js"></script> -->
 

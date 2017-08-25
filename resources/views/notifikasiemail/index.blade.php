@@ -24,17 +24,23 @@
             </td>
         </tr>
         <tr>
+          <td style="padding: 20px 0 30px 0;">
+             Email ini menunjukkan bahwa ada pertanyaan baru, untuk melihat pertanyaan dapat melihatnya
+             melalui link dibawah:
+            </td>
+        </tr>
+        <tr>
             <td bgcolor="#ffffff" style="padding: 40px 30px 40px 30px;">
              <table border="0" cellpadding="0" cellspacing="0" width="100%">
              <tr>
               <td>
-               <h3>Notifikasi Email</h3>
+               <h3>{{urldecode($acara->nama_acara)}}</h3>
               </td>
-             </tr>
-             <tr>
-              <td style="padding: 20px 0 30px 0;">
-               Email ini menunjukkan bahwa ada pertanyaan baru, untuk melihat pertanyaan dapat melihatnya
-               melalui link dibawah:
+              <td>
+               <h3>{{urldecode($acara->nama_agenda)}}</h3>
+              </td>
+              <td>
+               <h3>{{urldecode($acara->tanggal_mulai)}} {{urldecode($acara->waktu_agenda)}}</h3>
               </td>
              </tr>
              <tr>

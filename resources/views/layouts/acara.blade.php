@@ -22,7 +22,8 @@
     <!--fullcalender-->
     <link rel="stylesheet" href="{{ asset('css/fullcalendar.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fullcalendar.print.min.css') }}" media="print">
-    <link rel="stylesheet" href="{{url('/admindist/dist/css/sweetalert.css')}}">
+    {{-- <link rel="stylesheet" href="{{url('/admindist/dist/css/sweetalert.css')}}"> --}}
+    <link href="https://cdn.jsdelivr.net/sweetalert2/5.3.8/sweetalert2.css" rel="stylesheet"/>
 </head>
 <body style="background-image:url('bg.png'); background-repeat: repeat;background-size: 100%">
     <div id="app">
@@ -92,7 +93,8 @@
     <script src="{{ asset('js/fullcalendar.min.js') }}"></script>
     <!--datepicker-->
     <script src="{{ asset('admindist/js/bootstrap-datetimepicker.min.js') }}"></script>
-    <script src="{{url('/admindist/dist/js/sweetalert.min.js')}}"></script>
+    {{-- <script src="{{url('/admindist/dist/js/sweetalert.min.js')}}"></script> --}}
+    <script src="https://cdn.jsdelivr.net/sweetalert2/5.3.8/sweetalert2.js"></script>
 
     @yield('js')    
 </body>
