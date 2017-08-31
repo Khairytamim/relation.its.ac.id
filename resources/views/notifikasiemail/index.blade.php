@@ -36,9 +36,13 @@
               <td>
                <h3>{{urldecode($acara->nama_acara)}}</h3>
               </td>
+              </tr>
+              <tr>
               <td>
                <h3>{{urldecode($acara->nama_agenda)}}</h3>
               </td>
+              </tr>
+              <tr>
               <td>
                <h3>{{urldecode($acara->tanggal_mulai)}} {{urldecode($acara->waktu_agenda)}}</h3>
               </td>
