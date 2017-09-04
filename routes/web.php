@@ -40,6 +40,7 @@ Route::group(['prefix' => 'acara'], function () {
 	Route::post('/jadwal', 'AcaraController@jadwal')->name('jadwalajax');
 	Route::get('/lihat', 'AcaraController@lihat')->name('lihatacara');
 	Route::get('/panduan', 'HomeController@panduan')->name('panduan');
+	Route::get('/verifikasi', 'AcaraController@verifikasi')->name('verifikasi');
 
 
 });
@@ -57,6 +58,15 @@ Route::group(['prefix' => 'admin/statistik'], function () {
 	// Route::post('/add', 'UserController@add')->name('adduser');
 
 });
+Route::group(['prefix' => 'admin/calendar'], function () {
+	Route::get('/', 'CalendarController@index')->name('statistik');
+	Route::get('/ajax', 'StatistikController@ajax')->name('statistikajax');
+
+
+	// Route::post('/add', 'UserController@add')->name('adduser');
+
+});
+
 
 Route::get('/event/detail', 'AcaraController@event')->name('getevent');
 

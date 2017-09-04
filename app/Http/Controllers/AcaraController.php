@@ -16,6 +16,7 @@ use Mail;
 use App\Mail\KonfirmasiAcara;
 use Carbon\Carbon;
 use App\Mail\NotifikasiPertanyaan;
+use App\Mail\AddAcara;
 
 
 class AcaraController extends Controller
@@ -73,7 +74,7 @@ class AcaraController extends Controller
     {
         $this->setActive('acara');
         $this->setTitle('confirmation');
-        $this->data['acara'] = Acara::where('status', 0)->orderBy('created_at', "desc")->get();
+        $this->data['acara'] = Acara::where('status', 0)->where('status_email', 1)->orderBy('created_at', "desc")->get();
         //dd($this->data['acara']);
 
         return view('admin.konfirmasiacara.index', $this->data);
@@ -82,8 +83,8 @@ class AcaraController extends Controller
     public function add(Request $request)
     {
 
-        $messages["tanggalmulai.after"]="Tanggal yang anda masukkan harus tujuh hari atau satu minggu setelah hari ini";
-        $messages['waktu.date_format']="Waktu yang anda masukkan tidak sesuai format. contoh: 17:25:00";
+        $messages["tanggalmulai.after"] = "Tanggal yang anda masukkan harus 5 hari setelah hari ini";
+        $messages['waktu.date_format'] = "Waktu yang anda masukkan tidak sesuai format. contoh: 17:25:00";
 
 
 
@@ -97,7 +98,7 @@ class AcaraController extends Controller
             'deskripsi_agenda' => 'required',
             'deskripsi' => 'required',
             'nama_agenda' => 'required',
-            'tanggalmulai' => 'required|date_format:Y-m-d|after:'.Carbon::now()->addWeek()->toDateString().'',
+            'tanggalmulai' => 'required|date_format:Y-m-d|after:'.Carbon::now()->addDays(5)->toDateString().'',
             'waktu' => 'required:date_format:H:i:s',
                         
             
@@ -128,15 +129,33 @@ class AcaraController extends Controller
             Storage::disk('public')->put($filename, File::get($file));
             $create->poster_acara = "storage/$filename";
         }
-
        
         $create->tanggal_mulai = $request->tanggalmulai;
         $create->waktu_agenda = $request->waktu;
+        $create->status_email = 0;
+        $create->email_its_pengaju = $request->emailitspic;
         $create->save();
 
-        Mail::to('melania.muntini@gmail.com')->cc('hlmn.hg@gmail.com')->send(new NotifikasiPertanyaan($create->id_acara));
+        if($create->emailitspic != '') Mail::to($create->email_pengaju)->cc($create->emailitspic)->send(new AddAcara($create->id_acara));
+        else Mail::to($create->email_pengaju)->send(new AddAcara($create->id_acara));
+       
+        // Mail::to('melania.muntini@gmail.com')->cc('hlmn.hg@gmail.com')->send(new NotifikasiPertanyaan($create->id_acara));
 
         return back()->with('status', 'Sukses!');
+    }
+
+    public function verifikasi(Request $request)
+    {
+        $update = Acara::find($request->id);
+
+        if(!$update) return "Acara tidak ditemukan";
+
+        $update->status_email = 1;
+        $update->save();
+
+        Mail::to('melania.muntini@gmail.com')->cc('hlmn.hg@gmail.com')->send(new NotifikasiPertanyaan($update->id_acara));
+
+        echo 'Email Telah Terverifikasi, Silahkan Tunggu Jawaban Lewat Inbox/Spam Email Anda';
     }
 
     public function update(Request $request)
@@ -166,7 +185,7 @@ class AcaraController extends Controller
         $update->waktu_agenda = $request->waktu;
         $update->save();
 
-        // Mail::to($query->email_pengaju)->send(new KonfirmasiAcara($this->data));
+        Mail::to($query->email_pengaju)->send(new KonfirmasiAcara($this->data));
 
         return back()->with('status','Data Updated!');
     }

@@ -10,7 +10,7 @@
     </div>
 </header>
 {{-- <section id="calender" style="margin-top: 3vh;background: rgba(255,203,16,0.8);"> --}}
-<section id="calender" style="margin-top: 3vh;background: rgba(255,255,255,0.9);">
+{{-- <section id="calender" style="margin-top: 3vh;background: rgba(255,255,255,0.9);">
 <div class="container">
     <div style="margin-top: 3vh;margin-bottom: 3vh;">
         <div style="text-align: center;">
@@ -25,7 +25,7 @@
 </div>
 <div class="modal fade" id="event" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> 
   <div class="modal-dialog" role="document"> 
-    <div class="modal-content"> {{-- kalo mau ngasih warna ke modalnya --}} 
+    <div class="modal-content"> 
       <div class="modal-body"> 
         <div class="row"> 
             <div class="col-sm-4"> 
@@ -57,7 +57,7 @@
       </div> 
     </div> 
   </div> 
-</section>
+</section> --}}
 {{-- <section id="panduan">
 <div class="container">
     <div class="panel" style="text-align: center;">
@@ -195,6 +195,14 @@
 
                     <div class="col-md-8">
                         <input id="emailpic" type="email" class="form-control" name="emailpic" value="{{old('emailpic')}}" required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label for="emailitspic" class="col-md-4 control-label" style="color: white">Email ITS PIC</label>
+                    <div class="col-md-8">
+                        <input id="emailpic" type="email" class="form-control" name="emailitspic" value="{{old('emailpic')}}">
                     </div>
                 </div>
             </div>
