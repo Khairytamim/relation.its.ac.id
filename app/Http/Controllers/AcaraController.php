@@ -153,7 +153,7 @@ class AcaraController extends Controller
         $update->status_email = 1;
         $update->save();
 
-        Mail::to('melania.muntini@gmail.com')->cc('hlmn.hg@gmail.com')->send(new NotifikasiPertanyaan($update->id_acara));
+        Mail::to('melania.muntini@gmail.com')->cc('hlmn.hg@gmail.com')->send(new VerifikasiPertanyaan($update->id_acara));
 
         echo 'Email Telah Terverifikasi, Silahkan Tunggu Jawaban Lewat Inbox/Spam Email Anda';
     }
@@ -223,7 +223,7 @@ class AcaraController extends Controller
 
         return back()->with('status','Data Updated');
     }
-
+ 
     public function jadwal(Request $request)
     {
         $result = Acara::select(DB::raw('nama_agenda as title'), DB::raw('tanggal_mulai as start'), DB::raw('id_acara as id_acara'))->where('status', 1)->get();
