@@ -241,7 +241,7 @@
     </div>
     <div id="request" class="tab-pane fade in">
         <div class="row">
-            <form id="sent" class="form-horizontal" role="form" method="POST" action="">
+            <form id="sent" class="form-horizontal" role="form" method="POST" action="{{route('requestcalendar')}}">
                 {{ csrf_field() }}
             <div class="col-md-6 col-md-offset-3" style="padding-top: 0">
                 <h3 style="text-align: right;color: white">Request Kalender Acara ITS</h3>

@@ -61,17 +61,15 @@ Route::group(['prefix' => 'admin/statistik'], function () {
 Route::group(['prefix' => 'admin/calendar'], function () {
 	// Route::get('/', 'CalendarController@index')->name('statistik');
 	Route::get('/ajax', 'StatistikController@ajax')->name('statistikajax');
+	Route::get('/', 'AcaraController@calendar')->name('admincalendar');
 
 
 	// Route::post('/add', 'UserController@add')->name('adduser');
 
 });
 Route::group(['prefix' => 'calendar'], function () {
-	Route::get('/request', 'CalendarController@request')->name('requestcalendar');
-
-
-
-
+	Route::post('/request', 'CalendarController@request')->name('requestcalendar');
+	Route::get('/', 'CalendarController@index')->name('calendar');
 });
 
 
@@ -85,7 +83,4 @@ Route::group(['prefix' => 'cek'], function () {
 	Route::get('/', 'HomeController@cek');
 });
 
-Route::group(['prefix' => 'calendar'], function () {
-	Route::get('/', 'AcaraController@calendar')->name('calendar');
-	Route::get('/request', 'CalendarController@calendar')->name('requestcalendar');
-});
+

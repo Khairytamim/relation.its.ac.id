@@ -108,7 +108,7 @@
               <a href="{{route('users')}}"><i class="fa fa-user"></i> <span>User</span></a>
             </li>
             <li class="" id="aktifusers">
-              <a href="{{route('calendar')}}"><i class="fa fa-calendar"></i> <span>Calendar</span></a>
+              <a href="{{route('admincalendar')}}"><i class="fa fa-calendar"></i> <span>Calendar</span></a>
             </li>
           </ul>
         </section>
