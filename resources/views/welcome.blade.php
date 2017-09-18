@@ -69,7 +69,7 @@
 <section id="acara" style="background: rgba(32,65,127,0.8);">
 <div class="container">
     <div style="text-align: center;">
-        <h2 style="color: white">SUBMIT ACARA</h2>
+        <h2 style="color: white">HUMAS ITS</h2>
         @if (session('status'))
             <div id="status">
               <div class="alert alert-success">
@@ -90,145 +90,182 @@
         @endif
 
     </div>
-    <div class="row">
-        <form id="sent" class="form-horizontal" role="form" method="POST" action="{{ route('addacara') }}" enctype="multipart/form-data">
-            {{ csrf_field() }}
-        <div class="col-md-6">
-            <h3 style="text-align: right;color: white">DETAIL ACARA</h3>
-            <div class="form-group">
-                <label for="namaacara" class="col-md-4 control-label" style="color: white">Nama Acara</label>
-
-                <div class="col-md-8">
-                    <input id="namaacara" type="text" class="form-control" name="namaacara" value="{{old('namaacara')}}" required>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="deskripsi" class="col-md-4 control-label" style="color: white">Deskripsi Acara</label>
-
-                <div class="col-md-8">
-                    <textarea id="deskripsi" type="text" class="form-control"  name="deskripsi"  rows="6" required>{{old('deskripsi')}}</textarea> 
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="poster" class="col-md-4 control-label" style="color: white">Poster Acara</label>
-                <div class="col-md-8">
-                    <input type="file" name="poster" value="{{old('poster')}}" id="exampleInputFile" style="background-color: white; border-radius: 5px">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <h3 style="text-align: right;color: white">DETAIL AGENDA</h3>
-            <div class="form-group">
-                <label for="namaacara" class="col-md-4 control-label" style="color: white">Nama Agenda</label>
-
-                <div class="col-md-8">
-                    <input id="namaacara" type="text" value="{{old('nama_agenda')}}" class="form-control" name="nama_agenda" value="" required>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="deskripsi" class="col-md-4 control-label" style="color: white">Deskripsi Agenda</label>
-
-                <div class="col-md-8">
-                    <textarea id="deskripsi" type="text" class="form-control" value="" name="deskripsi_agenda" required> {{old('deskripsi_agenda')}}</textarea> 
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="lokasi" class="col-md-4 control-label" style="color: white">Lokasi Agenda</label>
-
-                <div class="col-md-8">
-                    <input id="lokasi" type="text" class="form-control" value="{{old('lokasi')}}" name="lokasi" value="" required>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="lokasi" class="col-md-4 control-label" style="color: white">Tanggal Agenda</label>
-                <div class='col-md-8'>
-                    <div class='input-group date' id='tanggal_agenda'>
-                        <input type='text' class="form-control" name="tanggalmulai" value="{{old('tanggalmulai')}}" />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="lokasi" class="col-md-4 control-label" style="color: white">Waktu Agenda</label>
-                <div class='col-md-8'>
-                    <div class='input-group date' id='waktu_agenda'>
-                        <input type='text' class="form-control" name="waktu" value="{{old('waktu')}}" />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-time"></span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="col-md-6" style="padding-top: 0">
-            <h3 style="text-align: right;color: white">PERSON IN CHARGE</h3>
-            <div class="form-group">
-                <div class="row">
-                    <label for="namapic" class="col-md-4 control-label" style="color: white">Nama PIC</label>
+    <div class="container">
+       <ul class="nav nav-pills">
+        <li class="active"><a data-toggle="pill" href="#submit">Submit Acara</a></li>
+        <li><a data-toggle="pill" href="#request">Request Kalender</a></li>
+      </ul>
+    </div>
+    <div class="tab-content">
+    <div id="submit" class="tab-pane fade in active">
+        <div class="row">
+            <form id="sent" class="form-horizontal" role="form" method="POST" action="{{ route('addacara') }}" enctype="multipart/form-data">
+                {{ csrf_field() }}
+            <div class="col-md-6">
+                <h3 style="text-align: right;color: white">DETAIL ACARA</h3>
+                <div class="form-group">
+                    <label for="namaacara" class="col-md-4 control-label" style="color: white">Nama Acara</label>
 
                     <div class="col-md-8">
-                        <input id="namapic" type="text" class="form-control" name="namapic" value="{{old('namapic')}}" required>
+                        <input id="namaacara" type="text" class="form-control" name="namaacara" value="{{old('namaacara')}}" required>
                     </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-            <div class="row">
-                <label for="kontakpic" class="col-md-4 control-label" style="color: white">No Telp/HP PIC</label>
-
-                <div class="col-md-8">
-                    <input id="kontakpic" type="number" class="form-control" name="kontakpic" value="{{old('kontakpic')}}" required>
-                </div>
-            </div>
-            </div>
-
-            <div class="form-group">
-                <div class="row">
-                    <label for="emailpic" class="col-md-4 control-label" style="color: white">Email PIC</label>
+                <div class="form-group">
+                    <label for="deskripsi" class="col-md-4 control-label" style="color: white">Deskripsi Acara</label>
 
                     <div class="col-md-8">
-                        <input id="emailpic" type="email" class="form-control" name="emailpic" value="{{old('emailpic')}}" required>
+                        <textarea id="deskripsi" type="text" class="form-control"  name="deskripsi"  rows="6" required>{{old('deskripsi')}}</textarea> 
                     </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="row">
-                    <label for="emailitspic" class="col-md-4 control-label" style="color: white">Email ITS PIC</label>
+                <div class="form-group">
+                    <label for="poster" class="col-md-4 control-label" style="color: white">Poster Acara</label>
                     <div class="col-md-8">
-                        <input id="emailpic" type="email" class="form-control" name="emailitspic" value="{{old('emailpic')}}">
+                        <input type="file" name="poster" value="{{old('poster')}}" id="exampleInputFile" style="background-color: white; border-radius: 5px">
                     </div>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="col-md-6">
+                <h3 style="text-align: right;color: white">DETAIL AGENDA</h3>
+                <div class="form-group">
+                    <label for="namaacara" class="col-md-4 control-label" style="color: white">Nama Agenda</label>
 
-            <div class="row">
-            
-            <div class="col-md-4 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary" style="background-color: #ffcb10;border: none; color: #20417f">
-                        Submit Acara
-                    </button>
-                {{-- </div> --}}
-            </div>
-            <div class="col-md-4 ">
-                {{-- <div class="form-group"> --}}
-                <div class="pull-right">
-                    <a href="{{url('panduan/studikasus.pdf')}}"><button type="button" class="btn btn-info" {{-- style="background-color: #ffcb10;border: none; color: #20417f" --}}>
-                        Panduan Pengisian
-                    </button></a>
+                    <div class="col-md-8">
+                        <input id="namaacara" type="text" value="{{old('nama_agenda')}}" class="form-control" name="nama_agenda" value="" required>
                     </div>
-                {{-- </div> --}}
+                </div>
+
+                <div class="form-group">
+                    <label for="deskripsi" class="col-md-4 control-label" style="color: white">Deskripsi Agenda</label>
+
+                    <div class="col-md-8">
+                        <textarea id="deskripsi" type="text" class="form-control" value="" name="deskripsi_agenda" required> {{old('deskripsi_agenda')}}</textarea> 
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="lokasi" class="col-md-4 control-label" style="color: white">Lokasi Agenda</label>
+
+                    <div class="col-md-8">
+                        <input id="lokasi" type="text" class="form-control" value="{{old('lokasi')}}" name="lokasi" value="" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="lokasi" class="col-md-4 control-label" style="color: white">Tanggal Agenda</label>
+                    <div class='col-md-8'>
+                        <div class='input-group date' id='tanggal_agenda'>
+                            <input type='text' class="form-control" name="tanggalmulai" value="{{old('tanggalmulai')}}" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lokasi" class="col-md-4 control-label" style="color: white">Waktu Agenda</label>
+                    <div class='col-md-8'>
+                        <div class='input-group date' id='waktu_agenda'>
+                            <input type='text' class="form-control" name="waktu" value="{{old('waktu')}}" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-time"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+            <div class="col-md-6" style="padding-top: 0">
+                <h3 style="text-align: right;color: white">PERSON IN CHARGE</h3>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="namapic" class="col-md-4 control-label" style="color: white">Nama PIC</label>
+
+                        <div class="col-md-8">
+                            <input id="namapic" type="text" class="form-control" name="namapic" value="{{old('namapic')}}" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                <div class="row">
+                    <label for="kontakpic" class="col-md-4 control-label" style="color: white">No Telp/HP PIC</label>
+
+                    <div class="col-md-8">
+                        <input id="kontakpic" type="number" class="form-control" name="kontakpic" value="{{old('kontakpic')}}" required>
+                    </div>
+                </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <label for="emailpic" class="col-md-4 control-label" style="color: white">Email PIC</label>
+
+                        <div class="col-md-8">
+                            <input id="emailpic" type="email" class="form-control" name="emailpic" value="{{old('emailpic')}}" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="emailitspic" class="col-md-4 control-label" style="color: white">Email ITS PIC</label>
+                        <div class="col-md-8">
+                            <input id="emailpic" type="email" class="form-control" name="emailitspic" value="{{old('emailpic')}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+
+                <div class="row">
+                
+                <div class="col-md-4 col-md-offset-4">
+                                        <button type="submit" class="btn btn-primary" style="background-color: #ffcb10;border: none; color: #20417f">
+                            Submit Acara
+                        </button>
+                    {{-- </div> --}}
+                </div>
+                <div class="col-md-4 ">
+                    {{-- <div class="form-group"> --}}
+                    <div class="pull-right">
+                        <a href="{{url('panduan/studikasus.pdf')}}"><button type="button" class="btn btn-info" {{-- style="background-color: #ffcb10;border: none; color: #20417f" --}}>
+                            Panduan Pengisian
+                        </button></a>
+                        </div>
+                    {{-- </div> --}}
+                </div>
+            </div>
+            </div>
+            </div>
+            </form>            
         </div>
+    </div>
+    <div id="request" class="tab-pane fade in">
+        <div class="row">
+            <form id="sent" class="form-horizontal" role="form" method="POST" action="">
+                {{ csrf_field() }}
+            <div class="col-md-6 col-md-offset-3" style="padding-top: 0">
+                <h3 style="text-align: right;color: white">Request Kalender Acara ITS</h3>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="emailitspic" class="col-md-4 control-label" style="color: white">Email ITS</label>
+                        <div class="col-md-8">
+                            <input id="emailpic" type="email" class="form-control" name="emailitspic" value="{{old('emailpic')}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+
+                <div class="row">
+                
+                <div class="col-md-4 col-md-offset-4">
+                    <button type="submit" class="btn btn-primary" style="background-color: #ffcb10;border: none; color: #20417f">Submit Acara</button>
+                </div>
+            </div>
+            </div>
+            </div>
+            </form>            
         </div>
-        </div>
-        </form>            
+    </div>
     </div>
 </div>
 
