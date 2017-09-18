@@ -59,11 +59,18 @@ Route::group(['prefix' => 'admin/statistik'], function () {
 
 });
 Route::group(['prefix' => 'admin/calendar'], function () {
-	Route::get('/', 'CalendarController@index')->name('statistik');
+	// Route::get('/', 'CalendarController@index')->name('statistik');
 	Route::get('/ajax', 'StatistikController@ajax')->name('statistikajax');
 
 
 	// Route::post('/add', 'UserController@add')->name('adduser');
+
+});
+Route::group(['prefix' => 'calendar'], function () {
+	Route::get('/request', 'CalendarController@request')->name('requestcalendar');
+
+
+
 
 });
 
