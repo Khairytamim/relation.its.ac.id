@@ -80,4 +80,5 @@ Route::group(['prefix' => 'cek'], function () {
 
 Route::group(['prefix' => 'calendar'], function () {
 	Route::get('/', 'AcaraController@calendar')->name('calendar');
+	Route::get('/request', 'CalendarController@calendar')->name('requestcalendar');
 });
