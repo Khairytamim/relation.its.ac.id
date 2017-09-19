@@ -12,39 +12,46 @@
     </div>
 </div>
 <div class="modal fade" id="event" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> 
-<div class="modal-dialog" role="document"> 
-<div class="modal-content"> 
-  <div class="modal-body"> 
-    <div class="row"> 
-        <div class="col-sm-4"> 
-            <div id="divgambar"> 
-                <img id="gambar" src="" style="height:100%;width: 100%"/> 
+    <div class="modal-dialog" role="document"> 
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Agenda</h4>
             </div> 
-        </div> 
-        <div class="col-sm-4"> 
-            <label>Nama Acara</label><br> 
-            <span id="namaacara"></span><br> 
-            <label>Deskripsi Acara</label><br> 
-            <span id="deskripsiacara"></span><br> 
-        </div> 
-        <div class="col-sm-4"> 
-            <label>Nama Agenda</label><br> 
-            <span id="namaagenda"></span><br> 
-            <label>Deskripsi Agenda</label><br> 
-            <span id="deskripsiagenda"></span><br> 
-            <label>Lokasi Agenda</label><br> 
-            <span id="lokasiagenda"></span><br> 
-            <label>Tanggal dan Waktu Agenda</label><br> 
-            <span id="tanggalagenda"></span> 
-            <span id="waktuagenda"></span><br> 
+            <div class="modal-body"> 
+                <div class="row"> 
+                    <div class="col-sm-4"> 
+                        <div id="divgambar"> 
+                            <img id="gambar" src="" style="height:100%;width: 100%"/> 
+                        </div> 
+                    </div> 
+                    <div class="col-sm-4"> 
+                        <label>Nama Acara</label><br> 
+                        <span id="namaacara"></span><br> 
+                        <label>Deskripsi Acara</label><br> 
+                        <span id="deskripsiacara"></span><br> 
+                    </div> 
+                    <div class="col-sm-4"> 
+                        <label>Nama Agenda</label><br> 
+                        <span id="namaagenda"></span><br> 
+                        <label>Deskripsi Agenda</label><br> 
+                        <span id="deskripsiagenda"></span><br> 
+                        <label>Lokasi Agenda</label><br> 
+                        <span id="lokasiagenda"></span><br> 
+                        <label>Tanggal dan Waktu Agenda</label><br> 
+                        <span id="tanggalagenda"></span> 
+                        <span id="waktuagenda"></span><br> 
+                    </div> 
+                </div>
+            </div> 
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button> 
+            </div>
         </div> 
     </div> 
-    <div class="modal-foooter">   
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button> 
-    </div> 
-  </div> 
-</div> 
-</div> 
+</div>    
+
+
 @endsection
 
 @section('js')
