@@ -16,7 +16,8 @@ class CalendarRequest extends Mailable
      *
      * @return void
      */
-    public $id_calendar;
+    public $token;
+
     public function __construct($id)
     {
         $this->id_calendar = $id;
@@ -29,6 +30,6 @@ class CalendarRequest extends Mailable
      */
     public function build()
     {
-        return $this->subject($this->result->nama_acara)->from('no-reply@humas.its.ac.id')->view('emailkonfirmasi.index');
+        return $this->subject('Permohonan Jadwal Agenda ITS')->from('no-reply@humas.its.ac.id')->view('emailkonfirmasi.index');
     }
 }

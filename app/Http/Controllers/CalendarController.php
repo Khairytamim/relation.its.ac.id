@@ -38,8 +38,8 @@ class CalendarController extends Controller
         }
 
     	$cek = Calendar_Confirmation::find($request->token);
-    	
-    	if(strtotime($cek->expired_at) > strtotime(date("Y-m-d H:i:s"))) return view('');
+
+    	if(strtotime($cek->expired_at) > strtotime(date("Y-m-d H:i:s"))) return view('calendar.calendar'); 
     	else return redirect('/')->with('calendarexpired', 'Token anda expired, mohon melakukan permohonan kembali');
     }
 }
