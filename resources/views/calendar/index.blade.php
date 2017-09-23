@@ -1,13 +1,15 @@
 @extends('layouts.adminlayout')
 
 @section('content')
-<div class="container" style="background-color: white">
+<div class="container"  style="background-color: white">
     <div style="margin-top: 3vh;margin-bottom: 3vh;">
-        <div style="text-align: center;">
+        <div style="text-align: center;" class="col-md-9 col-sm-12">
             <h2>KALENDER ACARA</h2>
         </div>
         <div class="row">
-        	<div id="calendar" ></div>
+            <div class="col-md-9 col-sm-12">
+                <div id="calendar"></div>
+            </div>
         </div>
     </div>
 </div>

@@ -8,6 +8,7 @@ use App\Calendar_Confirmation;
 use \Carbon\Carbon;
 use App\Mail\CalendarRequest;
 use Validator;
+use Mail;
 
 class CalendarController extends Controller
 {
