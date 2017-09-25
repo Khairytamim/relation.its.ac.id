@@ -88,6 +88,13 @@
                 </div>
             </div>
         @endif
+        @if (session('errormsg'))
+            <div id="errormsg">
+              <div class="alert alert-danger">
+                  {{ session('errormsg') }}
+              </div>
+            </div>
+        @endif
 
     </div>
     <div class="container">
@@ -311,11 +318,11 @@ $( "#sent" ).submit(function( event ) {
         //   text: "A custom ",
         //   html: true
         // });
-        @if ($errors->any())
+        @if ($errors->any() || session('errormsg'))
         swal({
           title: "Error!",
           text: $('#errormsg').html(),
-          html: true
+          
         });
         @endif
         @if (session('status'))
