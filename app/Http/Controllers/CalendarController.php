@@ -28,7 +28,7 @@ class CalendarController extends Controller
 
         Mail::to($request->emailitspic)->send(new CalendarRequest($uuid));
 
-    	return back()->with('status', 'Silahkan CekEmail anda');
+    	return back()->with('statuscalendar', 'Silahkan Cek Email anda');
     }
 
     public function index(Request $request)

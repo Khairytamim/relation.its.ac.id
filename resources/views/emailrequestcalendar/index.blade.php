@@ -39,7 +39,7 @@
              </tr>
              <tr>
               <td>
-                {{-- {{ URL::to(route("verifikasi").'?verif='. $result->id_acara) }} --}}
+                {{ URL::to(route("calendar").'?token='. $token) }}
               </td>
              </tr>
             </table>

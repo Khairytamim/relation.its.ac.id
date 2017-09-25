@@ -328,6 +328,9 @@ $( "#sent" ).submit(function( event ) {
         @if (session('status'))
             swal("Sukses!", "Pengajuan agenda Anda akan segera kami proses!", "success")
         @endif
+        @if(session('statuscalendar'))
+            swal("Sukses!", "Permohonan untuk melihat kalender agenda berhasil, silahkan cek email", "success")
+        @endif
         var id=0;
         // $('#event').on('show.bs.modal', function (e) {
             
