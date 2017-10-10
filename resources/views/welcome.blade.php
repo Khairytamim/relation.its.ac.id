@@ -6,7 +6,7 @@
     <div class="text-vertical-center">
         <h1 style="color: white">HumasITS</h1>
         <br>
-        <a href="#calender" class="btn btn-dark btn-lg" style="background-color: #ffcb10;border: none; color: #20417f">Silahkan Jelajahi</a>
+        <a href="#acara" class="btn btn-dark btn-lg" style="background-color: #ffcb10;border: none; color: #20417f">Silahkan Jelajahi</a>
     </div>
 </header>
 {{-- <section id="calender" style="margin-top: 3vh;background: rgba(255,203,16,0.8);"> --}}
@@ -66,10 +66,15 @@
 </div>
 </section> --}}
 
-<section id="acara" style="background: rgba(32,65,127,0.8);">
+<div class="container">
+   <ul class="nav nav-pills col-xs-3 col-xs-offset-5">
+    <li class="active"><a style="border-radius: 0" data-toggle="pill" href="#submit">Submit Acara</a></li>
+    <li><a style="border-radius: 0" data-toggle="pill" href="#request">Request Kalender</a></li>
+  </ul>
+</div>
+<section id="acara" style="background: rgb(32,65,127);">
 <div class="container">
     <div style="text-align: center;">
-        <h2 style="color: white">HUMAS ITS</h2>
         @if (session('status'))
             <div id="status">
               <div class="alert alert-success">
@@ -96,12 +101,6 @@
             </div>
         @endif
 
-    </div>
-    <div class="container">
-       <ul class="nav nav-pills">
-        <li class="active"><a data-toggle="pill" href="#submit">Submit Acara</a></li>
-        <li><a data-toggle="pill" href="#request">Request Kalender</a></li>
-      </ul>
     </div>
     <div class="tab-content">
     <div id="submit" class="tab-pane fade in active">
