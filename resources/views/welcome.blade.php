@@ -7,7 +7,7 @@
     <div class="text-vertical-center">
         <h1 style="color: #20417f">HumasITS</h1>
         <br>
-        <a href="#acara" class="btn btn-dark btn-lg" style="background-color: #ffcb10;border: none; color: #20417f">Silahkan Jelajahi</a>
+        <a href="#panduan" class="btn btn-dark btn-lg" style="background-color: #ffcb10;border: none; color: #20417f">Silahkan Jelajahi</a>
     </div>
 </header>
 {{-- <section id="calender" style="margin-top: 3vh;background: rgba(255,203,16,0.8);"> --}}
@@ -66,11 +66,17 @@
     </div>
 </div>
 </section> --}}
-
+<header id="panduan" class="header" style="height: 100%; ">
+    <div class="text-vertical-center">
+        <h1 style="color: #20417f">Panduan Pengisian</h1>
+        <br>
+        <a href="{{url('panduan/studikasus.pdf')}}" class="btn btn-primary btn-lg">Silahkan Unduh</a>
+    </div>
+</header>
 <div id="acara" class="container">
    <ul class="nav nav-pills col-md-3 col-md-offset-5">
     <li class="active"><a style="border-radius: 0" data-toggle="pill" href="#submit">Submit Acara</a></li>
-    <li><a style="border-radius: 0" data-toggle="pill" href="#request">Request Kalender</a></li>
+    <li><a style="border-radius: 0" data-toggle="pill" href="#request">Lihat Kalender</a></li>
   </ul>
 </div>
 <section style="background-color: #013880;">
@@ -260,9 +266,9 @@
                         <div class="col-md-4 col-md-offset-4">
                             <button type="submit" class="btn btn-primary" style="background-color: #ffcb10;border: none; color: #20417f">Submit Acara</button>
                         </div>
-                        <div class="col-md-4">
+                        {{-- <div class="col-md-4">
                              <a href="{{url('panduan/studikasus.pdf')}}" class="btn btn-info">Panduan Pengisian</a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -278,8 +284,11 @@
             <form id="sent" class="form-horizontal" role="form" method="POST" action="{{route('requestcalendar')}}">
                 {{ csrf_field() }}
                 <div class="col-md-6 col-md-offset-3" style="padding-top: 0">
-                    <h3 style="text-align: right;color: white">Request Kalender Acara ITS</h3>
+                    {{-- <h3 style="text-align: right;color: white">Masukkan Email ITS Untuk Melihat Agenda Acara dan Acara Lainnya</h3> --}}
                     <div class="form-group">
+                        <div class="row" style="margin: 5vh 0">
+                            <span style="text-align: justify; color: white">Masukkan Email ITS agar dapat melihat kalender dari acara yang diinginkan. Kalender akan dikirm melalui Email ITS yang ada dalam bentuk link dan hanya dapat diakses selama 5 hari setelah email diterima.</span>
+                        </div>
                         <div class="row">
                             <div class="col-md-3">
                                 <label for="emailitspic" class="control-label" style="color: white">Email ITS</label>
