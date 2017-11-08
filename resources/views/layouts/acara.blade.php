@@ -78,7 +78,7 @@
                                     <ul class="menu">
                                         <li>Kontak Kami</li>
                                         <li style="font-size: 12px">(031) 456-7890</li>
-                                        <li><a href="mailto:fikry.labsky08@gmail.com" class="btn btn-primary">Developed By</a></li>
+                                        <a style="padding: 6px" href="mailto:fikry.labsky08@gmail.com" class="btn btn-primary btn-block">Developed By</a>
                                     </ul>
                                 </div>
                             </div>
