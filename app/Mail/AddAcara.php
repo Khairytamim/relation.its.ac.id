@@ -35,7 +35,7 @@ class AddAcara extends Mailable
         set_time_limit(0);
 
         $this->result = Acara::find($this->data);
-
+    dd($this->result);
         return $this->subject('Verifikasi Pertanyaan')->from('no-reply@humas.its.ac.id')->view('verifikasiemail.index');
     }
 }
