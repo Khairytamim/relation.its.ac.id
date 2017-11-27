@@ -136,8 +136,8 @@ class AcaraController extends Controller
         $create->email_its_pengaju = $request->emailitspic;
         $create->save();
 
-        if($create->emailitspic != '') Mail::to($create->email_pengaju)->cc($create->emailitspic)->send(new AddAcara($create->id_acara));
-        else Mail::to($create->email_pengaju)->send(new AddAcara($create->id_acara));
+        if($create->emailitspic != '') Mail::to($request->emailpic)->cc($request->emailitspic)->send(new AddAcara($create->id_acara));
+        else Mail::to($request->emailpic)->send(new AddAcara($create->id_acara));
        
         // Mail::to('melania.muntini@gmail.com')->cc('hlmn.hg@gmail.com')->send(new NotifikasiPertanyaan($create->id_acara));
 
