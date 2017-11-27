@@ -17,6 +17,7 @@ use App\Mail\KonfirmasiAcara;
 use Carbon\Carbon;
 use App\Mail\NotifikasiPertanyaan;
 use App\Mail\AddAcara;
+use App\Mail\VerifikasiPertanyaan;
 
 
 class AcaraController extends Controller
