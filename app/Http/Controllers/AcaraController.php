@@ -154,7 +154,7 @@ class AcaraController extends Controller
         $update->status_email = 1;
         $update->save();
 
-        Mail::to('melania.muntini@gmail.com')->cc(['hlmn.hg@gmail.com', 'advenfirman@gmail.com'])->send(new VerifikasiPertanyaan($update->id_acara));
+        Mail::to('melania.muntini@gmail.com')->cc(['hlmn.hg@gmail.com', 'advenfirman@gmail.com'])->send(new NotifikasiPertanyaan($update->id_acara));
 
         echo 'Email Telah Terverifikasi, Silahkan Tunggu Jawaban Lewat Inbox/Spam Email Anda';
     }
