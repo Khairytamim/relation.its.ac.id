@@ -146,14 +146,14 @@ class AcaraController extends Controller
 
     public function verifikasi(Request $request)
     {
-        $update = Acara::find($request->id);
+        $update = Acara::find($request->verif);
 
         if(!$update) return "Acara tidak ditemukan";
 
         $update->status_email = 1;
         $update->save();
 
-        Mail::to('melania.muntini@gmail.com')->cc('hlmn.hg@gmail.com')->send(new VerifikasiPertanyaan($update->id_acara));
+        Mail::to('melania.muntini@gmail.com')->cc(['hlmn.hg@gmail.com', 'advenfirman@gmail.com'])->send(new VerifikasiPertanyaan($update->id_acara));
 
         echo 'Email Telah Terverifikasi, Silahkan Tunggu Jawaban Lewat Inbox/Spam Email Anda';
     }
