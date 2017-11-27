@@ -17,6 +17,7 @@ use App\Mail\KonfirmasiAcara;
 use Carbon\Carbon;
 use App\Mail\NotifikasiPertanyaan;
 use App\Mail\AddAcara;
+use App\Mail\VerifikasiPertanyaan;
 
 
 class AcaraController extends Controller
@@ -136,8 +137,8 @@ class AcaraController extends Controller
         $create->email_its_pengaju = $request->emailitspic;
         $create->save();
 
-        if($create->emailitspic != '') Mail::to($create->email_pengaju)->cc($create->emailitspic)->send(new AddAcara($create->id_acara));
-        else Mail::to($create->email_pengaju)->send(new AddAcara($create->id_acara));
+        if($create->emailitspic != '') Mail::to($request->emailpic)->cc($request->emailitspic)->send(new AddAcara($create->id_acara));
+        else Mail::to($request->emailpic)->send(new AddAcara($create->id_acara));
        
         // Mail::to('melania.muntini@gmail.com')->cc('hlmn.hg@gmail.com')->send(new NotifikasiPertanyaan($create->id_acara));
 
@@ -146,14 +147,14 @@ class AcaraController extends Controller
 
     public function verifikasi(Request $request)
     {
-        $update = Acara::find($request->id);
+        $update = Acara::find($request->verif);
 
         if(!$update) return "Acara tidak ditemukan";
 
         $update->status_email = 1;
         $update->save();
 
-        Mail::to('melania.muntini@gmail.com')->cc('hlmn.hg@gmail.com')->send(new VerifikasiPertanyaan($update->id_acara));
+        Mail::to('melania.muntini@gmail.com')->cc(['hlmn.hg@gmail.com', 'advenfirman@gmail.com'])->send(new NotifikasiPertanyaan($update->id_acara));
 
         echo 'Email Telah Terverifikasi, Silahkan Tunggu Jawaban Lewat Inbox/Spam Email Anda';
     }

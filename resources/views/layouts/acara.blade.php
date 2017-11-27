@@ -13,87 +13,153 @@
     {{-- <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> --}}
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/stylish-portfolio.css') }}" rel="stylesheet" >
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/stylish-portfolio.css') }}" rel="stylesheet">
     <link href="{{ asset('admindist/css/bootstrap-datetimepicker-standalone.css') }}" rel="stylesheet">
     <link href="{{ asset('admindist/css/bootstrap-datetimepicker.css') }}" rel="stylesheet">
     <link href="{{ asset('admindist/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
-    <!--fullcalender-->
-    <link rel="stylesheet" href="{{ asset('css/fullcalendar.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/fullcalendar.print.min.css') }}" media="print">
-    {{-- <link rel="stylesheet" href="{{url('/admindist/dist/css/sweetalert.css')}}"> --}}
+    
     <link href="https://cdn.jsdelivr.net/sweetalert2/5.3.8/sweetalert2.css" rel="stylesheet"/>
 </head>
 <body style="background-image:url('bg.png'); background-repeat: repeat;background-size: 100%">
-    <div id="app">
-        <!-- Navigation -->
-        <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle" style="z-index: 1000; background-color: #ffcb10;border: none; color: #20417f">MENU</a>
-        <nav id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle" style="background-color: #ffcb10;border: none; color: #20417f"><b>x</b></a>
-                <li><h2 style="color: white">HUMAS<b>ITS</b></h2></li>
-                <li>
-                    <a href="#calender" onclick=$("#menu-close").click();>Kalender</a>
-                </li>
-                <li>
-                    <a href="#panduan" onclick=$("#menu-close").click();>Panduan</a>
-                </li>
-                <li>
-                    <a href="#acara" onclick=$("#menu-close").click();>Submit Acara</a>
-                </li>
-            </ul>
-        </nav>
+        <!--navigation-->
+        <div class="section-menu">
+            <nav class="navbar navbar-default">
+                <div class="container container-header">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="http://its.ac.dev/">
+                            <img src="{{url('/img/icons/logo-its.png')}}" class="logo">
+                        </a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <div class="clearfix">
+                            <ul id="menu-secondary-menu" class="nav navbar-nav secondary-top-menu">
+                                <li><a href="#panduan">Panduan</a></li>
+                                <li><a href="#calender">Kalender</a></li>
+                                <li><a href="#acara">Submit Acara</a></li>
+                                <li class="login hidden-xs">
+                                    <a href="http://its.ac.id">
+                                        <img src="{{url('/img/icons/logo-login.png')}}" class="logo">
+
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
         <!--content-->
         @yield('content')
         <!--footer-->
-        <footer style="padding:10vh 0 0 0; background: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.4),rgba(32,65,127,1));">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-10 col-lg-offset-1 text-center">
-                        <h4 style="color: white"><strong>Kontak Kami</strong>
-                        </h4>
-                        <p style="color: white">Rektorat Building 1st Floor
+        <div class="section_footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-2 col-xs-5">
+                            <img src="{{url('/img/logo.png')}}" class="logo-in-footer">
+                        </div>
+                        <div class="col-sm-3 col-xs-7">
+                            <p>Rektorat Building 1st Floor
                             <br>Kampus ITS, Jalan Raya ITS, Keputih, Sukolilo, Keputih, Surabaya
-                            <br>Jawa Timur 60117, Indonesia
-                            <br>(031) 456-7890</p>
-                        <ul class="list-unstyled">
-                            <li style="color: white"><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:fikry.labsky08@gmail.com" class="btn btn-light">Developed By</a>
-                            </li>
-                        </ul>
-                        {{-- <ul class="list-inline">
-                            <li>
-                                <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
-                            </li>
-                        </ul> --}}
-                        <hr class="small">
-                        <p class="text-muted" style="color: white">Copyright &copy; Humas ITS 2017</p>
+                            <br>Jawa Timur 60117, Indonesia</p>
+                        </div>
+                        <div class="col-sm-3 col-xs-4 border-right-white-in-mobile">
+                            <div class="footer-top-content border-left-white">
+                                <div class="menu-footer-top-menu-container">
+                                    <ul class="menu">
+                                        <li>Kontak Kami</li>
+                                        <li style="font-size: 12px">(031) 456-7890</li>
+                                        <a style="padding: 6px" href="mailto:fikry.labsky08@gmail.com" class="btn btn-primary btn-block">Developed By</a>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 col-xs-4 border-right-white-in-mobile">
+                            <div class="footer-top-content border-left-white">
+                                <div class="title-footer padding-left-35 text-center">
+                                    Temukan Kami :
+                                </div>
+                                <ul class="sosmed">
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <img src="{{url('/img/icons/logo-youtube.png')}}">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <img src="{{url('/img/icons/logo-instagram.png')}}">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <img src="{{url('/img/icons/logo-facebook.png')}}">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <a href="#" target="_blank">
+                                            <img src="{{url('/img/icons/twitter.png')}}">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <img src="{{url('/img/icons/logo-medsos-A.png')}}">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank">
+                                            <a href="#" target="_blank">
+                                            <img src="{{url('/img/icons/logo-line.png')}}">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 col-xs-4">
+                            <div class="footer-top-content border-left-white">
+                                <div class="title-footer padding-left-35 text-center">
+                                    Perpustakaan ITS
+                                </div>
+                                <div class="perpustakaan-content">
+                                    <a href="#" target="_blank">
+                                        <a href="#" target="_blank">
+                                            <img src="{{url('/img/icons/perpustakaan.png')}}">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
-        </footer>
-    </div>
+            
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            Copyright © Humas ITS 2017
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/moment.min.js') }}"></script>
-    {{-- <script src="{{ asset('js/bootstrap.min.js') }}"></script> --}}
-    <script src="{{url('/admindist/bootstrap/js/bootstrap.js')}}"></script>
-    
-    <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
-    <!--fullcalender-->
-    <script src="{{ asset('js/fullcalendar.min.js') }}"></script>
+    {{-- <script src="{{url('/admindist/bootstrap/js/bootstrap.js')}}"></script> --}}
     <!--datepicker-->
     <script src="{{ asset('admindist/js/bootstrap-datetimepicker.min.js') }}"></script>
-    {{-- <script src="{{url('/admindist/dist/js/sweetalert.min.js')}}"></script> --}}
+    <!--sweetalert-->
     <script src="https://cdn.jsdelivr.net/sweetalert2/5.3.8/sweetalert2.js"></script>
 
     @yield('js')    
