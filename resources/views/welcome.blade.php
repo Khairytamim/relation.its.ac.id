@@ -256,7 +256,7 @@
                             <label for="emailitspic" class="control-label" style="color: white">Email ITS PIC</label>
                         </div>
                         <div class="col-md-9">
-                            <input id="emailpic" type="email" class="form-control" name="emailpic" value="{{old('emailpic')}}" required>
+                            <input id="emailpic" type="email" class="form-control" name="emailitspic" value="{{old('emailpic')}}" required>
                         </div>
                     </div>
                 </div>
