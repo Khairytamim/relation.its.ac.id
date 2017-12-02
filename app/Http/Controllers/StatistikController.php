@@ -22,6 +22,7 @@ class StatistikController extends Controller
 
     	$acara = Acara::select('*', DB::raw('DATEDIFF(DATE(waktu_konfirmasi),DATE(created_at)) as respon_1'))->orderBy('created_at', 'desc')->get();
     	$this->data['acara'] = $acara;
+        // dd($this->data);
 
     	return view('admin.statistik.index', $this->data);
     }

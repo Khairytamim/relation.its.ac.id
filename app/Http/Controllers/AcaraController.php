@@ -186,7 +186,7 @@ class AcaraController extends Controller
         $update->waktu_agenda = $request->waktu;
         $update->save();
 
-        Mail::to($query->email_pengaju)->send(new KonfirmasiAcara($this->data));
+        // Mail::to($query->email_pengaju)->send(new KonfirmasiAcara($this->data));
 
         return back()->with('status','Data Updated!');
     }
