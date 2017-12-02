@@ -1,16 +1,30 @@
 @extends('layouts.adminlayout')
 
 @section('content')
-<div class="container"  style="background-color: white">
-    <div style="margin-top: 3vh;margin-bottom: 3vh;">
-        <div style="text-align: center;" class="col-md-9 col-sm-12">
+<div class="row">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Title</h3>
+                </div>
+                <div class="box-body">
+                  <div id="calendar" ></div>
+                </div>
+                <!-- /.box-body -->
+                {{-- <div class="box-footer">
+                  Footer
+                </div> --}}
+            <!-- /.box-footer-->
+            </div>
+        </div>
+    {{-- <div style="margin-top: 3vh;margin-bottom: 3vh;">
+        <div style="text-align: center;">
             <h2>KALENDER ACARA</h2>
         </div>
         <div class="row">
-            <div class="col-md-9 col-sm-12">
-                <div id="calendar"></div>
-            </div>
+            
         </div>
+    </div> --}}
     </div>
 </div>
 <div class="modal fade" id="event" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> 

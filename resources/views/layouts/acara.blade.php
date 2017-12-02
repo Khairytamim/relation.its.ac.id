@@ -19,6 +19,8 @@
     <link href="{{ asset('admindist/css/bootstrap-datetimepicker-standalone.css') }}" rel="stylesheet">
     <link href="{{ asset('admindist/css/bootstrap-datetimepicker.css') }}" rel="stylesheet">
     <link href="{{ asset('admindist/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{url('/admindist/plugins/fullcalendar/fullcalendar.min.css')}}">
+    <link rel="stylesheet" href="{{url('/admindist/plugins/fullcalendar/fullcalendar.print.css')}}" media="print">
     
     <link href="https://cdn.jsdelivr.net/sweetalert2/5.3.8/sweetalert2.css" rel="stylesheet"/>
 </head>
@@ -159,6 +161,7 @@
     {{-- <script src="{{url('/admindist/bootstrap/js/bootstrap.js')}}"></script> --}}
     <!--datepicker-->
     <script src="{{ asset('admindist/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script src="{{url('/admindist/plugins/fullcalendar/fullcalendar.min.js')}}" ></script>
     <!--sweetalert-->
     <script src="https://cdn.jsdelivr.net/sweetalert2/5.3.8/sweetalert2.js"></script>
 
