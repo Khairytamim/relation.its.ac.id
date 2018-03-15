@@ -30,8 +30,8 @@
     <link rel="stylesheet" href="{{url('/admindist/dist/css/skins/_all-skins.min.css')}}">
     {{-- <link rel="stylesheet" href="{{url('/admindist/dist/css/sweetalert.css')}}"> --}}
     <link href="https://cdn.jsdelivr.net/sweetalert2/5.3.8/sweetalert2.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="{{ asset('css/fullcalendar.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/fullcalendar.print.min.css') }}" media="print">
+    <link rel="stylesheet" href="{{url('/admindist/plugins/fullcalendar/fullcalendar.min.css')}}">
+    <link rel="stylesheet" href="{{url('/admindist/plugins/fullcalendar/fullcalendar.print.css')}}" media="print">
 
       @yield('gaya')
     
@@ -147,7 +147,9 @@
 <!-- AdminLTE App -->
 <script src="{{url('/admindist/dist/js/app.min.js')}}"></script>
 <!--fullcalender-->
-<script src="{{ asset('js/fullcalendar.min.js') }}"></script>
+{{-- <script src="{{ asset('js/fullcalendar.min.js') }}"></script> --}}
+<script src="{{url('/admindist/plugins/fullcalendar/fullcalendar.min.js')}}" ></script>
+
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.2/socket.io.js"></script>
 <!-- AdminLTE for demo purposes -->
