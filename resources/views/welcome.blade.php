@@ -7,7 +7,8 @@
     <div class="text-vertical-center">
         <h1 style="color: #20417f">HumasITS</h1>
         <br>
-        <a href="#panduan" class="btn btn-dark btn-lg" style="background-color: #ffcb10;border: none; color: #20417f">Silahkan Jelajahi</a>
+        <a href="{{url('panduan/studikasus.pdf')}}" class="btn btn-primary btn-lg" style="background-color: #ffcb10;border: none; color: #20417f">Unduh Panduan Pengisian</a>
+        {{-- <a href="#panduan" class="btn btn-dark btn-lg" style="background-color: #ffcb10;border: none; color: #20417f">Silahkan Jelajahi</a> --}}
     </div>
 </header>
 {{-- <section id="calender" style="margin-top: 3vh;background: rgba(255,203,16,0.8);"> --}}
@@ -66,13 +67,13 @@
     </div>
 </div>
 </section> --}}
-<header id="panduan" class="header" style="height: 100%; ">
+{{-- <header id="panduan" class="header" style="height: 100%; ">
     <div class="text-vertical-center">
         <h1 style="color: #20417f">Panduan Pengisian</h1>
         <br>
         <a href="{{url('panduan/studikasus.pdf')}}" class="btn btn-primary btn-lg">Silahkan Unduh</a>
     </div>
-</header>
+</header> --}}
 <div id="acara" class="container">
    <ul class="nav nav-pills col-md-3 col-md-offset-5">
     <li class="active"><a style="border-radius: 0" data-toggle="pill" href="#submit">Submit Acara</a></li>
